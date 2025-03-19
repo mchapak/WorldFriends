@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: docs
+  preview: 
+    port: 5761
+
+website:
+  title: "The Net Project"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - summary.qmd
+      - indicators.qmd
+
+format:
+  html:
+    theme: sandstone
+    css: styles.css
+    toc: true
+
+execute: 
+  freeze: auto # to ensure R code is only executed locally
+  
+editor: visual
+
