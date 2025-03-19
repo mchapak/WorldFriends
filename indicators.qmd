@@ -11,7 +11,7 @@ title: "Indicators"
 rm(list=ls())
 
 pacman::p_load(cowplot, flexdashboard, ggmap, ggplot2, ggspatial, grid, 
-               knitr, leaflet, mapdata, maps, read_excel, sf, tidyverse)
+               knitr, leaflet, mapdata, maps, sf, tidyverse)
 options(knitr.table.format = "html") 
 ```
 
@@ -22,5 +22,6 @@ options(knitr.table.format = "html")
 
 source("src/moh705.R")
 
-
+# display number of conformed cases
+moh705A_fig
 ```

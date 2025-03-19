@@ -12,7 +12,7 @@ subcounty_hf <- tibble(
                  "Mgamboni", "Lenga"))
 
 # import MOH705A data and generate positivity rate
-moh705A <- read_excel("../data/WF/clean/khis_dispensary_data.xlsx", 
+moh705A <- readxl::read_excel("../data/WF/clean/khis_dispensary_data.xlsx", 
                       sheet = "MOH705A", skip=1) %>%
   rename_all(tolower) %>%
   mutate(dispensary = case_when(dispensary == "Ganze H/C" ~ "Ganze",
@@ -90,7 +90,7 @@ moh705A_fig <- ggplot(moh705A |> filter(pos_rate<1001),
 
 
 ### MOH705B ###
-moh705B <- read_excel("../data/WF/clean/khis_dispensary_data.xlsx", 
+moh705B <- readxl::read_excel("../data/WF/clean/khis_dispensary_data.xlsx", 
                       sheet = "MOH705B", skip=1) %>%
   rename_all(tolower) %>%
   select(-subcounty) %>%
