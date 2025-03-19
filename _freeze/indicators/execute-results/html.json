@@ -1,7 +1,7 @@
 {
-  "hash": "7fe7dc5d25748d8d057597b40c2c0d7d",
+  "hash": "cad34a5cf05632cc674dbeb7badec896",
   "result": {
-    "markdown": "---\ntitle: \"Indicators\"\n---\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](indicators_files/figure-html/generate-indicators-1.png){width=672}\n:::\n:::\n",
+    "markdown": "---\ntitle: \"Indicators\"\n---\n\n::: {.cell}\n\n:::\n",
     "supporting": [
       "indicators_files"
     ],

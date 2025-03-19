@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "The Net Project",
     "section": "",
-    "text": "Welcome to The Net Project."
+    "text": "Welcome to The Net Project.\n\n\n\n\n\n\n\nTitle of the intervention\nThe Net-Community Based Malaria Programme\n\n\nLead applicant\nAmici del Mondo - World Friends Onlus (WF)\n\n\nPartner\nDepartment of Health, Kilifi County\n\n\n\nCentro Salute Globale della Regione Toscana, A.O.U. Meyer\n\n\nCountry of the intervention\nKenya\n\n\nLocation of the intervention\nKilifi County (Ganze, Kilifi North, Kilifi South, Rabai)\n\n\nDuration of the intervention\n24 months\n\n\n\n\nThe expected output are:\n\nTo quantify the number of Malaria suspected and confirmed cases (over 5 and under 5) in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.\nTo determine the prevalence of malaria in Children (6-59 months) in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.\nTo quantify malaria positive Malaria positive cases (under 5) and total tested for malaria (under 5) in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.\nTo quantify the total laboratory test conducted (RDT and microscope), positivity rate and type of infection in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.\nTo determine the percentage of the population who slept under a ITN (insecticide treated net) the night before in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.\nTo calculate the percentage of population who have access to a ITN (insecticide treated net) the night before in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries (CHU), Sub-counties and County.\nTo determine percentage of malaria positive cases treated (over 5 and under 5) in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.\nTo quantify the number of intermittent preventive treatment of malaria during pregnancy delivered in 2022, 2023, 2024 and 2025 (first quarter) dispensaries (CHU), Sub-counties and County.\nTo determine the reporting rates of MOH 515 and MOH 705 A/B in 2022, 2023, 2024 and 2025 (first quarter) for community health extension workers and dispensaries included in the project, but also for Sub-Counties and County.\n\n\n\n\n\n\n\n\nDisclaimer"
   },
   {
     "objectID": "about.html",
@@ -18,6 +18,20 @@
     "href": "summary.html",
     "title": "Executive summary",
     "section": "",
-    "text": "This report aims to document the impact of The Net’s activities and their outcomes in Kilifi County, describe the acceptance and sustainability of the initiative by the beneficiaries and stakeholders."
+    "text": "The Net – Community Based Malaria Programme was implemented in Kilifi County, Kenya, between 202x and 202y. This was in response to several concerns raised by the Kenya coastal health authorities regarding the fight against malaria. Some of the concerns raised include low usage and access to insecticide treated nets (ITNs), low adherence to Intermittent Preventive Treatment in pregnancy (IPTp), incorrect information about malaria, challenges in screening, diagnosis, and follow up and over-treatment of malaria.\nThis project aimed to “Contribute to the achievement of the Sustainable Development Goal 3.3 By 2030, end the malaria epidemic and 3.8: Achieve Universal Health Coverage”. More specifically, the aim was to “Strengthen community-based malaria eradication mechanisms within Kilifi County, Kenya by 2024”.\nWe expected to achieve these goals by implementing several activities:\nThis report aims to document the impact of The Net’s activities and their outcomes in Kilifi County, describe the acceptance and sustainability of the initiative by the beneficiaries and stakeholders."
+  },
+  {
+    "objectID": "summary.html#study-sites",
+    "href": "summary.html#study-sites",
+    "title": "Executive summary",
+    "section": "Study sites",
+    "text": "Study sites"
+  },
+  {
+    "objectID": "summary.html#row",
+    "href": "summary.html#row",
+    "title": "Executive summary",
+    "section": "Row",
+    "text": "Row\n\nlist(\n  icon = \"trash\",\n  color = \"danger\",\n  value = 5\n)\n\n$icon\n[1] \"trash\"\n\n$color\n[1] \"danger\"\n\n$value\n[1] 5"
   }
 ]
