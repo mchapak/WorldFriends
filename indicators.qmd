@@ -1,3 +1,26 @@
 ---
 title: "Indicators"
 ---
+
+```{r}
+#| label: setup
+#| include: false
+#| warning: false
+#| echo: false
+
+rm(list=ls())
+
+pacman::p_load(cowplot, flexdashboard, ggmap, ggplot2, ggspatial, grid, 
+               knitr, leaflet, mapdata, maps, read_excel, sf, tidyverse)
+options(knitr.table.format = "html") 
+```
+
+```{r}
+#| label: generate-indicators
+#| echo: false
+#| warning: false
+
+source("src/moh705.R")
+
+
+```

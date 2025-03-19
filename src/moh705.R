@@ -59,21 +59,6 @@ moh705A <- moh705A |>
 moh705A$time <- factor(moh705A$time,
                        levels = report_month)
 
-### MOH705B ###
-moh705B <- read_excel("../data/WF/clean/khis_dispensary_data.xlsx", 
-                      sheet = "MOH705B", skip=1) %>%
-  rename_all(tolower) %>%
-  select(-subcounty) %>%
-  mutate(dispensary = case_when(dispensary == "Ganze H/C" ~ "Ganze",
-                                TRUE ~ dispensary))
-
-# reshape moh705B data
-moh705B <- reshape_moh705(moh705B) |>
-  rename_all(tolower) |>
-  rename(mip = "malaria in pregnancy") 
-moh705B$time <- factor(moh705B$time,
-                       levels = report_month)
-
 # have all trends on one graph
 ggplot(moh705A |> filter(pos_rate<1001), 
        aes(x = date, y = pos_rate, color = dispensary, group = dispensary)) +
@@ -90,7 +75,7 @@ ggplot(moh705A |> filter(pos_rate<1001),
 # vs facet the graphs by facility
 # Plot with Facets
 moh705A_fig <- ggplot(moh705A |> filter(pos_rate<1001), 
-                      aes(x = date, y = pos_rate, group = dispensary)) +
+                      aes(x = date, y = confirmed, group = dispensary)) +
   geom_line(color = "blue", size = 1) + 
   geom_point(color = "red", size = 2) + 
   labs(title = "Malaria Positivity Rate Trends by Health Facility",
@@ -101,3 +86,21 @@ moh705A_fig <- ggplot(moh705A |> filter(pos_rate<1001),
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   facet_wrap(~ dispensary, ncol=5)  # Facet by facility; (scales = "free_y")
+
+
+
+### MOH705B ###
+moh705B <- read_excel("../data/WF/clean/khis_dispensary_data.xlsx", 
+                      sheet = "MOH705B", skip=1) %>%
+  rename_all(tolower) %>%
+  select(-subcounty) %>%
+  mutate(dispensary = case_when(dispensary == "Ganze H/C" ~ "Ganze",
+                                TRUE ~ dispensary))
+
+# reshape moh705B data
+moh705B <- reshape_moh705(moh705B) |>
+  rename_all(tolower) |>
+  rename(mip = "malaria in pregnancy") 
+moh705B$time <- factor(moh705B$time,
+                       levels = report_month)
+
