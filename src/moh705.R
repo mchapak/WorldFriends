@@ -60,17 +60,17 @@ moh705A$time <- factor(moh705A$time,
                        levels = report_month)
 
 # have all trends on one graph
-ggplot(moh705A |> filter(pos_rate<1001), 
-       aes(x = date, y = pos_rate, color = dispensary, group = dispensary)) +
-  geom_line(size = 1) +
-  geom_point(size = 2) +
-  labs(title = "Malaria Positivity Rate Trends",
-       x = "Month",
-       y = "Positivity Rate per 1000",
-       color = "Health Facility") +
-  scale_x_date(date_labels = "%b %Y", date_breaks = "1 month") + # Format x-axis
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# ggplot(moh705A |> filter(pos_rate<1001), 
+#        aes(x = date, y = pos_rate, color = dispensary, group = dispensary)) +
+#   geom_line(size = 1) +
+#   geom_point(size = 2) +
+#   labs(title = "Malaria Positivity Rate Trends",
+#        x = "Month",
+#        y = "Positivity Rate per 1000",
+#        color = "Health Facility") +
+#   scale_x_date(date_labels = "%b %Y", date_breaks = "1 month") + # Format x-axis
+#   theme_minimal() +
+#   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 # vs facet the graphs by facility
 # Plot with Facets
@@ -78,11 +78,11 @@ moh705A_fig <- ggplot(moh705A |> filter(pos_rate<1001),
                       aes(x = date, y = confirmed, group = dispensary)) +
   geom_line(color = "blue", size = 1) + 
   geom_point(color = "red", size = 2) + 
-  labs(title = "Malaria Positivity Rate Trends by Health Facility",
+  labs(title = "Malaria Positivity by Health Facility",
        x = "Month",
-       y = "Positivity Rate per 1000") +
+       y = "Number malaria positive") +
   scale_x_date(date_labels = "%b %Y", date_breaks = "2 month") + # Format x-axis
-  ylim(0, 1000) +
+  ylim(0, 250) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   facet_wrap(~ dispensary, ncol=5)  # Facet by facility; (scales = "free_y")

@@ -23,5 +23,5 @@ options(knitr.table.format = "html")
 source("src/moh705.R")
 
 # display number of conformed cases
-moh705A_fig
+# moh705A_fig
 ```
