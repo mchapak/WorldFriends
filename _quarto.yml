@@ -1,15 +1,37 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - index.qmd
+    - summary.qmd
+    - indicators.qmd
+    - ganze.qmd
+    - kaloleni.qmd
+    - kilifinorth.qmd
+    - kilifisouth.qmd
+    - rabai.qmd
   preview: 
     port: 5761
 
 website:
   title: "The Net Project"
   navbar:
+    background: primary
     left:
       - href: index.qmd
         text: Home
+      - summary.qmd
+      - indicators.qmd
+      - ganze.qmd
+      - kaloleni.qmd
+      - kilifinorth.qmd
+      - kilifisouth.qmd
+      - rabai.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - index.qmd
       - summary.qmd
       - indicators.qmd
 
@@ -18,6 +40,8 @@ format:
     theme: sandstone
     css: styles.css
     toc: true
+    
+callout-appearance: simple
 
 execute: 
   freeze: auto # to ensure R code is only executed locally
