@@ -2,6 +2,8 @@
 # AUTHOR: DR MOSES KITI
 #######################
 
+library(tibble)
+library(dplyr)
 
 # generate names of health facilities in the sub-counties
 subcounty_hf <- tibble(
@@ -77,14 +79,16 @@ moh705A$time <- factor(moh705A$time,
 moh705A_fig <- ggplot(moh705A |> filter(pos_rate<1001), 
                       aes(x = date, y = confirmed, group = dispensary)) +
   geom_line(color = "blue", size = 1) + 
-  geom_point(color = "red", size = 2) + 
+  geom_point(color = "red", size = 1) + 
   labs(title = "Malaria Positivity by Health Facility",
        x = "Month",
        y = "Number malaria positive") +
   scale_x_date(date_labels = "%b %Y", date_breaks = "2 month") + # Format x-axis
   ylim(0, 250) +
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme(axis.title = element_text(size = 20),
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        axis.text.y = element_text(size = 20)) +
   facet_wrap(~ dispensary, ncol=5)  # Facet by facility; (scales = "free_y")
 
 
