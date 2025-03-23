@@ -11,7 +11,8 @@ title: "Executive summary"
 rm(list=ls())
 
 pacman::p_load(cowplot, ggmap, ggplot2, ggspatial, grid, 
-               knitr, leaflet, mapdata, maps, reticulate, sf, tidyr)
+               knitr, leaflet, mapdata, maps, reticulate, sf, tibble,
+               tidyr)
 options(knitr.table.format = "html") 
 ```
 
