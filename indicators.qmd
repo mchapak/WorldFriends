@@ -3,11 +3,27 @@ title: "Indicators"
 ---
 
 ```{r}
-#| label: generate-indicators
+#| label: generate-indicators-u5
 #| echo: false
 #| warning: false
+#| fig-width: 15
+#| fig-height: 6
+
+source("src/moh705.R")
+
+fig2_moh705A
+```
+
+```{r}
+#| label: generate-indicators-o5
+#| echo: false
+#| warning: false
+#| fig-width: 15
+#| fig-height: 6
 
 # source("src/moh705.R")
 
-
+fig3_moh705B
 ```
+
+
