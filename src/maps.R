@@ -97,5 +97,5 @@ study_locations <- ggdraw(kilifi_crop_plt) +
             x=0.25, y=0.674,
             width = 0.3, height = 0.3)
 
-ggsave("images/study_locations.png", plot = study_locations, bg = "transparent")
+ggsave("images/fig1_study_locations.png", plot = study_locations, bg = "transparent")
 
