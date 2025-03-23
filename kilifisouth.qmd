@@ -1,3 +1,14 @@
 ---
 title: "Kilifi South"
 ---
+
+```{r}
+#| label: ks-map
+#| echo: false
+#| warning: false
+#| results: hide
+
+source("src/maps.R")
+
+ks_hf
+```

@@ -1,3 +1,14 @@
 ---
 title: "Ganze"
 ---
+
+```{r}
+#| label: ganze-map
+#| echo: false
+#| warning: false
+#| results: hide
+
+source("src/maps.R")
+
+ganze_hf
+```

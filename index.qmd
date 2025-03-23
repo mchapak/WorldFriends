@@ -2,6 +2,14 @@
 title: "The Net Project"
 ---
 
+```{r}
+#| label: index
+#| echo: false
+#| warning: false
+
+rm(list=ls())
+```
+
 # Welcome to The Net Project.
 
 |                                  |                                                           |
@@ -14,6 +22,18 @@ title: "The Net Project"
 | **Location of the intervention** | Kilifi County (Ganze, Kilifi North, Kilifi South, Rabai)  |
 | **Duration of the intervention** | 24 months                                                 |
 
+------------------------------------------------------------------------
+
+```{r}
+#| label: study-locations
+#| echo: false
+#| warning: false
+#| results: hide
+
+source("src/maps.R")
+
+fig1_study_locations
+```
 ------------------------------------------------------------------------
 
 The expected output are:
