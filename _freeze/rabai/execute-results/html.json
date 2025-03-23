@@ -1,0 +1,16 @@
+{
+  "hash": "3fda5fa07e17a4d88487dbe1dcd9ea70",
+  "result": {
+    "markdown": "---\ntitle: \"Rabai\"\n---\n\n::: {.cell}\n::: {.cell-output-display}\n![](rabai_files/figure-html/rabai-map-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "rabai_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

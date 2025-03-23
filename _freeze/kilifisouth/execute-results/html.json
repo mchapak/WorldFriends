@@ -1,0 +1,16 @@
+{
+  "hash": "5a5a130fac250a2a65062292e240a4e3",
+  "result": {
+    "markdown": "---\ntitle: \"Kilifi South\"\n---\n\n::: {.cell}\n::: {.cell-output-display}\n![](kilifisouth_files/figure-html/ks-map-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "kilifisouth_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
