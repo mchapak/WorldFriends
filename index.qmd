@@ -5,7 +5,7 @@ title: "The Net Project"
 # Welcome to The Net Project.
 
 |                                  |                                                           |
-|----------------------------------|-----------------------------------------------------------|
+|---------------------------|---------------------------------------------|
 | **Title of the intervention**    | The Net-Community Based Malaria Programme                 |
 | **Lead applicant**               | Amici del Mondo - World Friends Onlus (WF)                |
 | **Partner**                      | Department of Health, Kilifi County                       |
@@ -14,11 +14,11 @@ title: "The Net Project"
 | **Location of the intervention** | Kilifi County (Ganze, Kilifi North, Kilifi South, Rabai)  |
 | **Duration of the intervention** | 24 months                                                 |
 
----------------------------------------------------
+------------------------------------------------------------------------
 
 The expected output are:
 
-i. To quantify the number of Malaria suspected and confirmed cases (over 5 and under 5) in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.
+i.  To quantify the number of Malaria suspected and confirmed cases (over 5 and under 5) in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.
 
 ii. To determine the prevalence of malaria in Children (6-59 months) in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.
 
@@ -26,7 +26,7 @@ iii. To quantify malaria positive cases (under 5) and total tested for malaria (
 
 iv. To quantify the total laboratory test conducted (RDT and microscope), positivity rate and type of infection in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.
 
-v. To determine the percentage of the population who slept under a ITN (insecticide treated net) the night before in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.
+v.  To determine the percentage of the population who slept under a ITN (insecticide treated net) the night before in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.
 
 vi. To calculate the percentage of population who have access to a ITN (insecticide treated net) the night before in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries (CHU), Sub-counties and County.
 
@@ -36,8 +36,7 @@ viii. To quantify the number of intermittent preventive treatment of malaria dur
 
 ix. To determine the reporting rates of MOH 515 and MOH 705 A/B in 2022, 2023, 2024 and 2025 (first quarter) for community health extension workers and dispensaries included in the project, but also for Sub-Counties and County.
 
-
----------------------------------------------------
+------------------------------------------------------------------------
 
 ::: {.callout-note collapse="true"}
 ## Disclaimer
