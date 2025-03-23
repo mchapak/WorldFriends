@@ -29,6 +29,8 @@ rm(list=ls())
 #| echo: false
 #| warning: false
 #| results: hide
+#| fig-width: 10
+#| fig-height: 12
 
 source("src/maps.R")
 

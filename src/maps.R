@@ -82,7 +82,7 @@ kilifi <- ggplot() +
 # crop map of Kilifi to show area around study sub-counties
 kilifi_crop <- st_crop(ke_map, xmin = 39, xmax = 40.3,
                        ymin = -4, ymax = -2.25)
-map_cols <- c('#8dd3c7', '#ffffb3', '#bebada', '#fb8072', '#80b1d3', '#fdb462', '#b3de69')
+map_cols <- c('#8dd3c7', '#ffffb3', '#bebada', '#d8b365', '#80b1d3', '#fdb462', '#b3de69')
 
 kilifi_crop_plt <- ggplot() +
   geom_sf(data = kilifi_crop, 
@@ -92,12 +92,16 @@ kilifi_crop_plt <- ggplot() +
   scale_fill_manual(values = map_cols) +
   geom_point(data = health_facilities, 
              aes(x = Longitude, y = Latitude), 
-             color = "red", shape = "+", size = 4, font="bold") +
+             color = "red", shape = "+", size = 8, font="bold") +
   ggrepel::geom_text_repel(data = health_facilities, 
                            aes(x = Longitude, y = Latitude, 
                                label = short_name), 
-                           size = 3, font = "bold",
+                           size = 6, font = "bold",
                            box.padding = unit(0.2, "lines")) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, size=25),
+        axis.text.y = element_text(size = 25),
+        axis.title = element_text(size = 30),
+        title = element_text(size=25)) +
   coord_sf(expand = FALSE) +
   annotation_scale(location = "bl", width_hint = 0.2) +
   annotation_north_arrow(location = "br", which_north = "true", 
@@ -108,7 +112,7 @@ kilifi_crop_plt <- ggplot() +
 # combine the maps with Kenya inset
 fig1_study_locations <- ggdraw(kilifi_crop_plt) +
   draw_plot({kilifi},
-            x=0.25, y=0.674,
+            x=0.13, y=0.67,
             width = 0.3, height = 0.3)
 
 ggsave("images/fig1_study_locations.png", plot = fig1_study_locations, bg = "transparent")
