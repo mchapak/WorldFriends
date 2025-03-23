@@ -33,5 +33,12 @@
     "title": "Executive summary",
     "section": "Row",
     "text": "Row\n\nlist(\n  icon = \"trash\",\n  color = \"danger\",\n  value = 5\n)\n\n$icon\n[1] \"trash\"\n\n$color\n[1] \"danger\"\n\n$value\n[1] 5"
+  },
+  {
+    "objectID": "indicators.html",
+    "href": "indicators.html",
+    "title": "Indicators",
+    "section": "",
+    "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\n\nAttaching package: 'lubridate'\n\n\nThe following objects are masked from 'package:base':\n\n    date, intersect, setdiff, union\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\nWarning: Removed 18 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\nWarning: Removed 189 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\nWarning: Removed 18 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\nWarning: Removed 201 rows containing missing values or values outside the scale range\n(`geom_point()`)."
   }
 ]

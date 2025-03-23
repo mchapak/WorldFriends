@@ -3,23 +3,30 @@ title: "Indicators"
 ---
 
 ```{r}
+#| label: generate-indicators
+#| echo: false
+#| warning: false
+
+source("src/moh705.R")
+```
+
+```{r}
 #| label: generate-indicators-u5
 #| echo: false
 #| warning: false
-#| fig-width: 15
-#| fig-height: 6
-
-source("src/moh705.R")
+#| fig-width: 12
+#| fig-height: 12
 
 fig2_moh705A
 ```
+------------------------------------------------------------------------
 
 ```{r}
 #| label: generate-indicators-o5
 #| echo: false
 #| warning: false
-#| fig-width: 15
-#| fig-height: 6
+#| fig-width: 12
+#| fig-height: 12
 
 # source("src/moh705.R")
 

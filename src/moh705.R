@@ -66,7 +66,8 @@ col_case <- c("#542788", "#fdb863", "#b35806")
 
 # create function to plot graphs
 plot_malaria_cases <- function(data, title_text, file_name) {
-  plot <- ggplot(data, aes(x = my, y = count, 
+  plot <- ggplot(data, 
+                 aes(x = my, y = count, 
                            group = case_type, color = case_type)) +
     geom_line(size = 1) +
     geom_point(size = 1.5) +
@@ -78,17 +79,21 @@ plot_malaria_cases <- function(data, title_text, file_name) {
     scale_color_manual(values = c("Suspected" = "#542788", 
                                   "Tested" = "#fdb863", 
                                   "Confirmed" = "#b35806")) +
-    facet_wrap(~ dispensary, ncol = 5) +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1),
-          axis.text.y = element_text(size = 15),
-          axis.title = element_text(size = 18))
-  
-  # Save the figure
-  ggsave(plot, filename = file_name, 
-         height = 6, width = 15, dpi = 300, bg = "#FFFFFF")
-  
+    facet_wrap(~ dispensary, ncol = 2) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1, size=10),
+          axis.text.y = element_text(size = 12),
+          axis.title = element_text(size = 16),
+          title = element_text(size=16))
   return(plot)
 }
+
+# Save the figure
+save_plot <- function(plot, file_name){  
+  ggsave(plot, filename = file_name, 
+         height = 6, width = 15, dpi = 300, bg = "#FFFFFF")
+}
+
+
 
 
 #===============================================================================
@@ -128,7 +133,9 @@ moh705A_long$case_type <- factor(moh705A_long$case_type,
                                  labels = c("Suspected", "Tested", "Confirmed"))
 
 # GRAPH 2: shows line trend for suspected, tested, confirmed for each dispensary
-plot_malaria_cases(moh705A_long, "under-5 years", "images/fig2_moh705A.png")
+fig2_moh705A <- plot_malaria_cases(moh705A_long, "under-5 years")
+
+save_plot(fig2_moh705A, "images/fig2_moh705A.png")
 
 
 # # GRAPH 3: graph 2, but suspected line is filled
@@ -194,6 +201,7 @@ moh705B_long$case_type <- factor(moh705B_long$case_type,
                                  labels = c("Suspected", "Tested", "Confirmed"))
 
 # GRAPH 3: shows line trend for suspected, tested, confirmed for each dispensary
-plot_malaria_cases(moh705B_long, "over-5 years", "images/fig3_moh705B.png")
+fig3_moh705B <- plot_malaria_cases(moh705B_long, "over-5 years")
 
+save_plot(fig3_moh705B, "images/fig3_moh705B.png")
 
