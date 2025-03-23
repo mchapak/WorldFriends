@@ -1,7 +1,7 @@
 {
-  "hash": "cad34a5cf05632cc674dbeb7badec896",
+  "hash": "e777480f590b1b1a5f8b76bc074e9a96",
   "result": {
-    "markdown": "---\ntitle: \"Indicators\"\n---\n\n::: {.cell}\n\n:::\n",
+    "markdown": "---\ntitle: \"Indicators\"\n---\n\n::: {.cell}\n::: {.cell-output-display}\n![](indicators_files/figure-html/generate-indicators-u5-1.png){width=1440}\n:::\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](indicators_files/figure-html/generate-indicators-o5-1.png){width=1440}\n:::\n:::\n",
     "supporting": [
       "indicators_files"
     ],
