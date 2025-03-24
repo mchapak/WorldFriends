@@ -6,6 +6,7 @@ library(dplyr)
 library(ggplot2)
 library(lubridate)
 library(tibble)
+library(tidyr)
 
 # generate names of health facilities in the sub-counties
 subcounty_hf <- tibble(
@@ -19,73 +20,70 @@ subcounty_hf <- tibble(
 # a. write functions to reshape data into correct format
 reshape_moh705 <- function(data) {
   data |> 
-    tidyr::pivot_longer(
+    pivot_longer(
       cols = -c(dispensary, data),
       names_to = "date",
       values_to = "count"
     ) |> 
-    tidyr::pivot_wider(
+    pivot_wider(
       names_from = data,
       values_from = count
     ) |>
     rename_all(tolower)  |>
-    dplyr::mutate(date = as.Date(as.numeric(date), origin = "1899-12-30"),
-                  month = month(date),
-                  year = substr(year(date), 3, 4), # extract last 2 digits of year value
-                  my = paste0(month ,"-", year))
-  
-  data <- left_join(data, subcounty_hf, by = "dispensary")
+    mutate(date = as.Date(as.numeric(date), origin = "1899-12-30"),
+           month = month(date),
+           year = substr(year(date), 3, 4), # extract last 2 digits of year value
+           my = paste0(month,"-",year))
 }
-
-# convert back to long format
-process_moh705_data <- function(data, report_month) {
-  data <- reshape_moh705(data) |> 
-    rename_all(tolower) |> 
-    rename(mip = "malaria in pregnancy")
-  
-  data$my <- factor(data$my, levels = report_month)
-  
-  # Convert to long format
-  data_long <- data |> 
-    tidyr::pivot_longer(cols = suspected:tested, 
-                        names_to = "case_type", 
-                        values_to = "count")
-  
-  data_long$case_type <- factor(data_long$case_type,
-                                levels = c("suspected", "tested", "confirmed"),
-                                labels = c("Suspected", "Tested", "Confirmed"))
-  
-  return(data_long)
-}
-
 
 # b. define report month levels
 report_month <- c("9-23","10-23","11-23","12-23","1-24","2-24","3-24","4-24",
                   "5-24","6-24","7-24","8-24","9-24","10-24","11-24","12-24",
                   "1-25","2-25","3-25","4-25","5-25")
 
-col_case <- c("#542788", "#fdb863", "#b35806")
+col_case <- c("#bdbdbd", "#7570b3", "#d95f02") #  "#542788"
 
 # create function to plot graphs
 plot_malaria_cases <- function(data, title_text, file_name) {
-  plot <- ggplot(data, 
-                 aes(x = my, y = count, 
-                           group = case_type, color = case_type)) +
-    geom_line(size = 1) +
-    geom_point(size = 1.5) +
-    labs(title = paste("Monthly", title_text, "malaria cases"),
+  plot <- ggplot(data, aes(x = my, y = count, 
+                           group = case_type, 
+                           color = case_type, 
+                           fill = case_type)) + 
+    
+    # Bar plot for suspected cases
+    geom_col(data = data %>% filter(case_type == "Suspected"), 
+             aes(fill = case_type), 
+             width = 1, alpha = 0.4) +  # Transparency to differentiate bars
+    
+    # Line plot for tested and confirmed cases
+    geom_line(data = data %>% filter(case_type != "Suspected"), 
+              aes(color = case_type), 
+              size = 1.2) + 
+    
+    # Points for tested and confirmed cases
+    geom_point(data = data %>% filter(case_type != "Suspected"), 
+               aes(color = case_type), 
+               size = 2) + 
+    
+    # Labels and theme
+    labs(title = paste("Monthly", title_text, "Malaria Cases"),
          x = "Month-Year",
          y = "Number of Cases",
-         color = "Case Type") +
+         color = "Case Type",
+         fill = "Case Type") + 
+    
+    # Ensure both color and fill use the same scale
+    scale_color_manual(values = c(col_case[1], col_case[2], col_case[3])) +  
+    scale_fill_manual(values = c(col_case[1], col_case[2], col_case[3])) +  
+    
+    facet_wrap(~ dispensary, ncol = 2) +  
     theme_minimal() +
-    scale_color_manual(values = c("Suspected" = "#542788", 
-                                  "Tested" = "#fdb863", 
-                                  "Confirmed" = "#b35806")) +
-    facet_wrap(~ dispensary, ncol = 2) +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1, size=10),
+    
+    # Improve readability of the plot
+    theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 10),
           axis.text.y = element_text(size = 18),
           axis.title = element_text(size = 20),
-          title = element_text(size=25),
+          title = element_text(size = 25),
           strip.text = element_text(size = 20, face = "bold"),
           legend.text = element_text(size = 18),
           legend.title = element_text(size = 20, face = "bold"))
@@ -93,13 +91,12 @@ plot_malaria_cases <- function(data, title_text, file_name) {
   return(plot)
 }
 
+
 # Save the figure
 save_plot <- function(plot, file_name){  
   ggsave(plot, filename = file_name, 
          height = 6, width = 15, dpi = 300, bg = "#FFFFFF")
 }
-
-
 
 
 #===============================================================================
@@ -111,11 +108,11 @@ moh705A <- readxl::read_excel("../data/WF/clean/khis_dispensary_data.xlsx",
                       sheet = "MOH705A", skip=1) %>%
   rename_all(tolower) %>%
   dplyr::mutate(dispensary = case_when(dispensary == "Ganze H/C" ~ "Ganze",
-                                TRUE ~ dispensary)) %>%
-  left_join(subcounty_hf, by = "dispensary")
+                                TRUE ~ dispensary))
+
 
 ### convert moh705A from wide to long format..
-moh705A <- reshape_moh705(moh705A) |>
+moh705A <- reshape_moh705(moh705A) %>%
   # check that confirmed < tested
   dplyr::mutate(diff = tested-confirmed)
 
@@ -145,26 +142,23 @@ fig2_moh705A <- plot_malaria_cases(moh705A_long, "under-5 years")
 save_plot(fig2_moh705A, "images/fig2_moh705A.png")
 
 
-
-
 #===============================================================================
 # STEP 2: OVER 5 MALARIA SUSPECTED, TESTED, CONFIRMED
 # #===============================================================================
 
 # Uses data from MOH705B
-
 moh705B <- readxl::read_excel("../data/WF/clean/khis_dispensary_data.xlsx", 
                       sheet = "MOH705B", skip=1) %>%
   rename_all(tolower) %>%
   select(-subcounty) %>%
   mutate(dispensary = case_when(dispensary == "Ganze H/C" ~ "Ganze",
-                                TRUE ~ dispensary))  %>%
-  left_join(subcounty_hf, by = "dispensary")
+                                TRUE ~ dispensary))
 
 # reshape moh705B data
 moh705B <- reshape_moh705(moh705B) |>
   rename_all(tolower) |>
   rename(mip = "malaria in pregnancy") 
+
 moh705B$my <- factor(moh705B$my,
                        levels = report_month)
 
@@ -181,42 +175,3 @@ moh705B_long$case_type <- factor(moh705B_long$case_type,
 fig3_moh705B <- plot_malaria_cases(moh705B_long, "over-5 years")
 
 save_plot(fig3_moh705B, "images/fig3_moh705B.png")
-
-
-
-
-#===============================================================================
-#===============================================================================
-# # GRAPH 3: graph 2, but suspected line is filled
-# moh705A_fig3 <- ggplot() +
-#   # Filled area for suspected cases
-#   geom_area(data = moh705A_long %>% 
-#               filter(case_type == "Suspected"),
-#             aes(x = my, y = count, fill = case_type),
-#             alpha = 0.3) + # Adjust transparency
-#   
-#   # Line plots for all cases
-#   geom_line(data = moh705A_long %>% 
-#               filter(case_type != "Suspected"), 
-#             aes(x = my, y = count, group = case_type, color = case_type), 
-#             size = 1.2) +
-#   
-#   # Points for all cases
-#   geom_point(data = moh705A_long %>% 
-#                filter(case_type != "Suspected"), 
-#              aes(x = my, y = count, color = case_type), 
-#              size = 2) +
-#   
-#   # Labels and theme
-#   labs(title = "Under 5 monthly malaria cases",
-#        x = "Month",
-#        y = "Number of Cases",
-#        color = "Case Type",
-#        fill = "Case Type") +
-#   theme_minimal() +
-#   scale_color_manual(values = c(col_case[2:3])) +
-#   scale_fill_manual(values = c(col_case[1])) + # Only fill suspected cases
-#   facet_wrap(~ dispensary, ncol=5)
-# moh705A_fig3
-
-
