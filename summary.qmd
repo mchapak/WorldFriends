@@ -22,20 +22,24 @@ This project aimed to “Contribute to the achievement of the Sustainable Develo
 
 We expected to achieve these goals by implementing several activities:
 
-- prevention of transmission through raising awareness on use of bed nets
--	capacity building of *[missing text]* and community case management
--	strengthening of data collection tools at community level and county monitoring mechanisms (Kenya Health Information System) 
+-   prevention of transmission through raising awareness on use of bed nets
+-   capacity building of *\[missing text\]* and community case management
+-   strengthening of data collection tools at community level and county monitoring mechanisms (Kenya Health Information System)
 
 This report aims to document the impact of The Net’s activities and their outcomes in Kilifi County, describe the acceptance and sustainability of the initiative by the beneficiaries and stakeholders.
 
-## Study sites
+### Study sites
 
 ```{r}
-#| label: study-site
+#| label: study-locations
 #| echo: false
+#| warning: false
+#| results: hide
+#| fig-width: 6
+#| fig-height: 9
 
-# source("../src/maps.R")
+source("src/maps.R")
 
-# # display study locations
-# print("../images/study_locations.png")
+fig1_study_locations
 ```
+
