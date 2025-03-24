@@ -10,10 +10,10 @@ title: "The Net Project"
 rm(list=ls())
 ```
 
-# Welcome to The Net Project.
+## Welcome to The Net Project.
 
 |                                  |                                                           |
-|---------------------------|---------------------------------------------|
+|----------------------------------|-----------------------------------------------------------|
 | **Title of the intervention**    | The Net-Community Based Malaria Programme                 |
 | **Lead applicant**               | Amici del Mondo - World Friends Onlus (WF)                |
 | **Partner**                      | Department of Health, Kilifi County                       |
@@ -24,21 +24,8 @@ rm(list=ls())
 
 ------------------------------------------------------------------------
 
-```{r}
-#| label: study-locations
-#| echo: false
-#| warning: false
-#| results: hide
-#| fig-width: 10
-#| fig-height: 12
 
-source("src/maps.R")
-
-fig1_study_locations
-```
-------------------------------------------------------------------------
-
-The expected output are:
+### The expected output are:
 
 i.  To quantify the number of Malaria suspected and confirmed cases (over 5 and under 5) in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.
 
