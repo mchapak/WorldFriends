@@ -171,7 +171,7 @@ kn_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_facilit
                                       "Kilifi North", map_cols[3])
 
 ks_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_facilities,
-                                   "Kilifi South", map_cols[4])
+                                   "Kilifi South", map_cols[6])
 
 rabai_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_facilities,
                                    "Rabai", map_cols[7])
