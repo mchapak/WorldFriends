@@ -2,6 +2,7 @@
 title: "Rabai"
 ---
 
+There were two dispensaries in Rabai subcounty: Lenga and Makanzani.
 ```{r}
 #| label: rabai-map
 #| echo: false

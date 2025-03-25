@@ -2,6 +2,10 @@
 title: "Kilifi South"
 ---
 
+## Study sites
+
+There were two dispensaries in Kilifi South: Pingilikani and Tunzanani.
+
 ```{r}
 #| label: ks-map
 #| echo: false

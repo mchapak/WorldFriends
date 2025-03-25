@@ -2,6 +2,7 @@
 title: "Kilifi North"
 ---
 
+There were two dispensaries in Kilifi North subcounty: Kiwandani and Kadzinuni.
 ```{r}
 #| label: kn-map
 #| echo: false

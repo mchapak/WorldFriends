@@ -2,6 +2,8 @@
 title: "Kaloleni"
 ---
 
+There were two dispensaries in Kaloleni subcounty: Kinarani and Mgamboni.
+
 ```{r}
 #| label: kaloleni-map
 #| echo: false

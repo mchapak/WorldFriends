@@ -2,11 +2,13 @@
 title: "Ganze"
 ---
 
+There were two dispensaries in Ganze subcounty: Ganze and Jaribuni.
+
 ```{r}
 #| label: ganze-map
 #| echo: false
 #| warning: false
-#| results: hide
+#| results: false
 
 source("src/maps.R")
 
