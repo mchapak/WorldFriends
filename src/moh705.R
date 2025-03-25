@@ -74,8 +74,8 @@ plot_malaria_cases <- function(data, title_text, file_name) {
                size = 2) + 
     
     # Labels and theme
-    labs(title = paste("Monthly", title_text, "Malaria Cases"),
-         x = "Month-Year",
+    labs(title = paste("Monthly", title_text, "malaria cases"),
+         x = "Month-Year of reporting",
          y = "Number of Cases",
          color = "Case Type",
          fill = "Case Type") + 
@@ -91,8 +91,8 @@ plot_malaria_cases <- function(data, title_text, file_name) {
     theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 10),
           axis.text.y = element_text(size = 18),
           axis.title = element_text(size = 20),
-          title = element_text(size = 25),
-          strip.text = element_text(size = 20, face = "bold"),
+          title = element_text(size = 20),
+          strip.text = element_text(size = 18, face = "bold"),
           legend.text = element_text(size = 18),
           legend.title = element_text(size = 20, face = "bold"))
   
@@ -152,7 +152,7 @@ save_plot(fig2_moh705A, "images/fig2_moh705A.png")
 
 #===============================================================================
 # STEP 2: OVER 5 MALARIA SUSPECTED, TESTED, CONFIRMED
-# #===============================================================================
+#===============================================================================
 
 # Uses data from MOH705B
 moh705B <- readxl::read_excel("../data/WF/clean/khis_dispensary_data.xlsx", 
@@ -183,3 +183,8 @@ moh705B_long$case_type <- factor(moh705B_long$case_type,
 fig3_moh705B <- plot_malaria_cases(moh705B_long, "over-5 years")
 
 save_plot(fig3_moh705B, "images/fig3_moh705B.png")
+
+
+#===============================================================================
+# STEP 3: GENERATE COUNTY GRAPHS
+#===============================================================================
