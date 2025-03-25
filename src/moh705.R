@@ -10,11 +10,19 @@ library(tidyr)
 
 # generate names of health facilities in the sub-counties
 subcounty_hf <- tibble(
-  subcounty = c("Ganze", "Ganze", "Kaloleni", "Kaloleni", "KF North", 
-                "KF North", "KF South", "KF South", "Rabai", "Rabai"),
-  dispensary = c("Ganze", "Jaribuni", "Makanzani", "Kinarani",
-                 "Kiwandani", "Kadzinuni", "Pingilikani", "Tunzanani",
-                 "Mgamboni", "Lenga"))
+  subcounty = c("Ganze", "Ganze", "Kaloleni", "Kaloleni",
+                "Kilifi North", "Kilifi North", "Kilifi North", 
+                "Kilifi South", "Kilifi South", "Rabai", "Rabai", "Malindi"),
+  dispensary = c("Ganze Health Centre", "Jaribuni Dispensary", # Ganze
+                 "Mgamboni Dispensary", "Kinarani Dispensary", # Kaloleni
+                 "Kiwandani Dispensary", "Kadzinuni Dispensary", 
+                 "Kilifi District Hospital",  # KN
+                 "Pingilikani Dispensary", "Tunzanani Dispensary", # KS
+                 "Makanzani Dispensary", "Lenga Dispensary", # Rabai
+                 "Malindi District Hospital"), # Malindi
+  short_f_name = c("Ganze", "Jaribuni", "Mgamboni", "Kinarani", "Kiwandani",
+                   "Kadzinuni", "Kilifi", "Pingilikani", 
+                   "Tunzanani", "Makanzani", "Lenga", "Malindi")) 
 
 # create functions to transform data
 # a. write functions to reshape data into correct format
