@@ -1,7 +1,7 @@
 {
-  "hash": "f80458b2c9a9c313d9ca683b53c6f59a",
+  "hash": "2c236342db79cd739ccfa60ec34013f2",
   "result": {
-    "markdown": "---\ntitle: \"Rabai\"\n---\n\n\nThere were two dispensaries in Rabai subcounty: Lenga and Makanzani.\n\n::: {.cell}\n::: {.cell-output-display}\n![](rabai_files/figure-html/rabai-map-1.png){width=672}\n:::\n:::\n",
+    "markdown": "---\ntitle: \"Rabai\"\n---\n\n\nThere were two dispensaries in Rabai subcounty: Lenga and Makanzani.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](rabai_files/figure-html/rabai-map-1.png){width=672}\n:::\n:::\n\n\n\n## Malaria trends\n::: {.panel-tabset}\n\n## Under 5\n\n\n::: {.cell}\n\n:::\n\n\n## Over 5\n\n\n::: {.cell}\n\n:::\n\n\n:::\n\n\n------------------------------------------------------------------------\n\n\n## Malaria treatment\n\n::: {.panel-tabset}\n\n## Under 5\n\n## Over 5\n\n## Malaria in pregnancy\n\n:::\n\n------------------------------------------------------------------------\n\n\n## Bednets\n::: {.panel-tabset}\n\n## Access\n\n\n## Use\n\n:::\n\n------------------------------------------------------------------------",
     "supporting": [
       "rabai_files"
     ],

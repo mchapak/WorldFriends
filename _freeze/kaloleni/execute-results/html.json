@@ -1,7 +1,7 @@
 {
-  "hash": "de57750fed16e3405077e6bde52d54c8",
+  "hash": "2aaf10c9814725c3100a07135f45d361",
   "result": {
-    "markdown": "---\ntitle: \"Kaloleni\"\n---\n\n\nThere were two dispensaries in Kaloleni subcounty: Kinarani and Mgamboni.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](kaloleni_files/figure-html/kaloleni-map-1.png){width=672}\n:::\n:::\n",
+    "markdown": "---\ntitle: \"Kaloleni\"\n---\n\n\nThere were two dispensaries in Kaloleni subcounty: Kinarani and Mgamboni.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](kaloleni_files/figure-html/kaloleni-map-1.png){width=672}\n:::\n:::\n\n\n\n------------------------------------------------------------------------\n\n## Malaria trends\n::: {.panel-tabset}\n\n## Under 5\n\n\n::: {.cell}\n\n:::\n\n\n## Over 5\n\n\n::: {.cell}\n\n:::\n\n\n:::\n\n\n------------------------------------------------------------------------\n\n\n## Malaria treatment\n\n::: {.panel-tabset}\n\n## Under 5\n\n## Over 5\n\n## Malaria in pregnancy\n\n:::\n\n------------------------------------------------------------------------\n\n\n## Bednets\n::: {.panel-tabset}\n\n## Access\n\n\n## Use\n\n:::\n\n------------------------------------------------------------------------\n\n\n",
     "supporting": [
       "kaloleni_files"
     ],

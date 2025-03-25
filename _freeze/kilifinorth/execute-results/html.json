@@ -1,7 +1,7 @@
 {
-  "hash": "0e53b051107edf76f401cce32c05fddb",
+  "hash": "3e614672a22c154816cbb739fd019ef4",
   "result": {
-    "markdown": "---\ntitle: \"Kilifi North\"\n---\n\n\nThere were two dispensaries in Kilifi North subcounty: Kiwandani and Kadzinuni.\n\n::: {.cell}\n::: {.cell-output-display}\n![](kilifinorth_files/figure-html/kn-map-1.png){width=672}\n:::\n:::\n",
+    "markdown": "---\ntitle: \"Kilifi North\"\n---\n\n\nThere were two dispensaries in Kilifi North subcounty: Kiwandani and Kadzinuni.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](kilifinorth_files/figure-html/kn-map-1.png){width=672}\n:::\n:::\n\n\n\n------------------------------------------------------------------------\n\n## Malaria trends\n::: {.panel-tabset}\n\n## Under 5\n\n\n::: {.cell}\n\n:::\n\n\n## Over 5\n\n\n::: {.cell}\n\n:::\n\n\n:::\n\n\n------------------------------------------------------------------------\n\n\n## Malaria treatment\n\n::: {.panel-tabset}\n\n## Under 5\n\n## Over 5\n\n## Malaria in pregnancy\n\n:::\n\n------------------------------------------------------------------------\n\n\n## Bednets\n::: {.panel-tabset}\n\n## Access\n\n\n## Use\n\n:::\n\n------------------------------------------------------------------------\n\n\n",
     "supporting": [
       "kilifinorth_files"
     ],
