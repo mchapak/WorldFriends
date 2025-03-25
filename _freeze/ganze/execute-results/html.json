@@ -1,7 +1,7 @@
 {
-  "hash": "f938ff66c2cc4c861be9bf9043a3f70b",
+  "hash": "d69cd190d74153989ff84627911f3e55",
   "result": {
-    "markdown": "---\ntitle: \"Ganze\"\n---\n\n::: {.cell}\n::: {.cell-output-display}\n![](ganze_files/figure-html/ganze-map-1.png){width=672}\n:::\n:::\n",
+    "markdown": "---\ntitle: \"Ganze\"\n---\n\n\nThere were two dispensaries in Ganze subcounty: Ganze and Jaribuni.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](ganze_files/figure-html/ganze-map-1.png){width=672}\n:::\n:::\n",
     "supporting": [
       "ganze_files"
     ],

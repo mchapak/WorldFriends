@@ -1,7 +1,7 @@
 {
-  "hash": "58f5808a27b78dd9c2f79e4b42dd08ff",
+  "hash": "0e53b051107edf76f401cce32c05fddb",
   "result": {
-    "markdown": "---\ntitle: \"Kilifi North\"\n---\n\n::: {.cell}\n::: {.cell-output-display}\n![](kilifinorth_files/figure-html/kn-map-1.png){width=672}\n:::\n:::\n",
+    "markdown": "---\ntitle: \"Kilifi North\"\n---\n\n\nThere were two dispensaries in Kilifi North subcounty: Kiwandani and Kadzinuni.\n\n::: {.cell}\n::: {.cell-output-display}\n![](kilifinorth_files/figure-html/kn-map-1.png){width=672}\n:::\n:::\n",
     "supporting": [
       "kilifinorth_files"
     ],

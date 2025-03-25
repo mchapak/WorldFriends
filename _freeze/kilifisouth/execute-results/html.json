@@ -1,7 +1,7 @@
 {
-  "hash": "5a5a130fac250a2a65062292e240a4e3",
+  "hash": "4e78a959c5f5483314e4b0afc7ab4b28",
   "result": {
-    "markdown": "---\ntitle: \"Kilifi South\"\n---\n\n::: {.cell}\n::: {.cell-output-display}\n![](kilifisouth_files/figure-html/ks-map-1.png){width=672}\n:::\n:::\n",
+    "markdown": "---\ntitle: \"Kilifi South\"\n---\n\n\n## Study sites\n\nThere were two dispensaries in Kilifi South: Pingilikani and Tunzanani.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](kilifisouth_files/figure-html/ks-map-1.png){width=672}\n:::\n:::\n",
     "supporting": [
       "kilifisouth_files"
     ],
