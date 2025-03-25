@@ -8,7 +8,7 @@ title: "Executive summary"
 #| warning: false
 #| echo: false
 
-rm(list=ls())
+## rm(list=ls())
 
 pacman::p_load(cowplot, ggmap, ggplot2, ggspatial, grid, 
                knitr, leaflet, mapdata, maps, reticulate, sf, tibble,
@@ -16,7 +16,7 @@ pacman::p_load(cowplot, ggmap, ggplot2, ggspatial, grid,
 options(knitr.table.format = "html") 
 ```
 
-The Net – Community Based Malaria Programme was implemented in Kilifi County, Kenya, between 202x and 202y. This was in response to several concerns raised by the Kenya coastal health authorities regarding the fight against malaria. Some of the concerns raised include low usage and access to insecticide treated nets (ITNs), low adherence to Intermittent Preventive Treatment in pregnancy (IPTp), incorrect information about malaria, challenges in screening, diagnosis, and follow up and over-treatment of malaria.
+The Net – Community Based Malaria Programme was implemented in Kilifi County, Kenya, between 2023 and 2025. This was in response to several concerns raised by the Kenya coastal health authorities regarding the fight against malaria. Some of the concerns raised include low usage and access to insecticide treated nets (ITNs), low adherence to Intermittent Preventive Treatment in pregnancy (IPTp), incorrect information about malaria, challenges in screening, diagnosis, and follow up and over-treatment of malaria.
 
 This project aimed to “Contribute to the achievement of the Sustainable Development Goal 3.3 By 2030, end the malaria epidemic and 3.8: Achieve Universal Health Coverage”. More specifically, the aim was to “Strengthen community-based malaria eradication mechanisms within Kilifi County, Kenya by 2024”.
 
@@ -42,4 +42,3 @@ source("src/maps.R")
 
 fig1_study_locations
 ```
-
