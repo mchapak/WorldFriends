@@ -87,7 +87,7 @@ kilifi_crop_plt <- ggplot() +
   ggrepel::geom_text_repel(data = health_facilities, 
                            aes(x = Longitude, y = Latitude, 
                                label = short_f_name), 
-                           size = 3, font = "bold",
+                           size = 4, font = "bold",
                            box.padding = unit(0.2, "lines")) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, size=25),
         axis.text.y = element_text(size = 25),
@@ -103,7 +103,7 @@ kilifi_crop_plt
 # combine the maps with Kenya inset
 fig1_study_locations <- ggdraw(kilifi_crop_plt) +
   draw_plot({kilifi},
-            x=0.22, y=0.68,
+            x=0.13, y=0.635,
             width = 0.3, height = 0.3)
 fig1_study_locations
 
