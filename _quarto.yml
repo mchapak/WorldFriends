@@ -34,6 +34,11 @@ website:
       - index.qmd
       - summary.qmd
       - indicators.qmd
+      - ganze.qmd
+      - kaloleni.qmd
+      - kilifinorth.qmd
+      - kilifisouth.qmd
+      - rabai.qmd
 
 format:
   html:
