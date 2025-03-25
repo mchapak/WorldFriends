@@ -16,3 +16,65 @@ source("src/maps.R")
 
 ks_hf
 ```
+
+------------------------------------------------------------------------
+
+## Malaria trends
+::: {.panel-tabset}
+
+## Under 5
+
+```{r}
+#| label: ganze-u5
+#| echo: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 12
+
+```
+
+## Over 5
+
+```{r}
+#| label: ganze-o5
+#| echo: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 12
+
+
+```
+
+:::
+
+
+------------------------------------------------------------------------
+
+
+## Malaria treatment
+
+::: {.panel-tabset}
+
+## Under 5
+
+## Over 5
+
+## Malaria in pregnancy
+
+:::
+
+------------------------------------------------------------------------
+
+
+## Bednets
+::: {.panel-tabset}
+
+## Access
+
+
+## Use
+
+:::
+
+------------------------------------------------------------------------
+

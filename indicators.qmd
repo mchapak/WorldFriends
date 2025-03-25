@@ -1,5 +1,5 @@
 ---
-title: "Malaria trends"
+title: "Overview of indicators"
 ---
 
 ```{r}
@@ -10,6 +10,27 @@ title: "Malaria trends"
 source("src/moh705.R")
 ```
 
+## Reporting rates
+
+::: {.panel-tabset}
+
+## MOH 515
+
+## MOH 705A
+
+## MOH 705B
+
+:::
+
+------------------------------------------------------------------------
+
+
+## Malaria trends
+::: {.panel-tabset}
+
+## Under 5
+
+A summary of malaria trends for children under-5 years old in all dispensaries. This shows the suspected, tested and confirmed cases.
 ```{r}
 #| label: generate-indicators-u5
 #| echo: false
@@ -20,8 +41,8 @@ source("src/moh705.R")
 fig2_moh705A
 ```
 
-------------------------------------------------------------------------
-
+## Over 5
+A summary of malaria trends for individuals over-5 years old in all dispensaries. This shows the suspected, tested and confirmed cases.
 ```{r}
 #| label: generate-indicators-o5
 #| echo: false
@@ -29,7 +50,12 @@ fig2_moh705A
 #| fig-width: 12
 #| fig-height: 12
 
-# source("src/moh705.R")
-
 fig3_moh705B
+
 ```
+
+:::
+
+
+------------------------------------------------------------------------
+
