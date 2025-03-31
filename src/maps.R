@@ -39,6 +39,17 @@ subcounty_hf <- tibble(
 ## get lat-long of health facilities
 ### sourced from https://springernature.figshare.com/articles/dataset/Public_health_facilities_in_sub_Saharan_Africa/7725374?backTo=/collections/A_spatial_database_of_health_facilities_managed_by_the_public_health_sector_in_sub_Saharan_Africa/4399445 
 
+# Tunzanani dispensary was not in the MOH list, so we create manually
+tunzanani_hf <- tibble(
+  county = "Kilifi",
+  dispensary = "Tunzanani Dispensary",
+  F_Type = "Dispensary",
+  Ownership = "MOH",
+  Latitude = -3.891365,
+  Longitude = 39.695260,
+  subcounty = "Kilifi South",
+  short_f_name = "Tunzanani")
+  
 health_facilities <- readxl::read_excel("../data/SSA_health_facility_location_data.xlsx") %>%
   dplyr::filter(Admin1 == "Kilifi") %>%
   dplyr::rename(county = "Admin1",
@@ -48,7 +59,8 @@ health_facilities <- readxl::read_excel("../data/SSA_health_facility_location_da
                 Longitude = Long) %>%
   dplyr::filter(dispensary %in% subcounty_hf$dispensary) %>%
   dplyr::select(-c("LL source", "Country")) %>%
-  left_join(subcounty_hf, by = "dispensary")
+  left_join(subcounty_hf, by = "dispensary") %>%
+  rbind(tunzanani_hf)
 
 
 #-- 3. generate map of study sub-counties
