@@ -7,6 +7,7 @@ title: "Overview of indicators"
 #| echo: false
 #| warning: false
 
+source("src/functions.R")
 source("src/moh705.R")
 ```
 
@@ -27,30 +28,30 @@ source("src/moh705.R")
 ::: panel-tabset
 ## Under 5
 
-A summary of malaria trends for children under-5 years old in all dispensaries. This shows the suspected, tested and confirmed cases.
+Total number of <span style='color:#bdbdbd'>**suspected**</span>, <span style='color:#7570b3'>**tested**</span>, and <span style='color:#d95f02'>**confirmed**</span> malaria cases by sub-county.
 
 ```{r}
 #| label: generate-indicators-u5
 #| echo: false
 #| warning: false
 #| fig-width: 12
-#| fig-height: 12
+#| fig-height: 15
 
-fig2_moh705A
+fig3_moh705A
 ```
 
 ## Over 5
 
-A summary of malaria trends for individuals over-5 years old in all dispensaries. This shows the suspected, tested and confirmed cases.
+Total number of <span style='color:#bdbdbd'>**suspected**</span>, <span style='color:#7570b3'>**tested**</span>, and <span style='color:#d95f02'>**confirmed**</span> malaria cases by sub-county.
 
 ```{r}
 #| label: generate-indicators-o5
 #| echo: false
 #| warning: false
 #| fig-width: 12
-#| fig-height: 12
+#| fig-height: 15
 
-fig3_moh705B
+fig5_moh705B
 
 ```
 :::
