@@ -27,7 +27,7 @@ kaloleni_hf
 #| echo: false
 #| warning: false
 #| fig-width: 12
-#| fig-height: 6
+#| fig-height: 5
 
 source("src/moh705.R")
 
@@ -42,7 +42,7 @@ plot_malaria_cases(moh705A_long %>% filter(subcounty == "Kaloleni"),
 #| echo: false
 #| warning: false
 #| fig-width: 12
-#| fig-height: 6
+#| fig-height: 5
 
 plot_malaria_cases(moh705B_long %>% filter(subcounty == "Kaloleni"), 
                    "over-5 years")
