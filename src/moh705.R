@@ -29,7 +29,7 @@ subcounty_hf <- tibble(
 reshape_moh705 <- function(data) {
   data |> 
     pivot_longer(
-      cols = -c(dispensary, data),
+      cols = -c(dispensary, data, subcounty),
       names_to = "date",
       values_to = "count"
     ) |> 
@@ -59,7 +59,8 @@ plot_malaria_cases <- function(data, title_text, file_name) {
                            fill = case_type)) + 
     
     # Bar plot for suspected cases
-    geom_col(data = data %>% filter(case_type == "Suspected"), 
+    geom_col(data = data %>% filter(case_type == "Suspected",
+                                    ), 
              aes(fill = case_type), 
              width = 1, alpha = 0.4) +  # Transparency to differentiate bars
     
@@ -116,7 +117,9 @@ moh705A <- readxl::read_excel("../data/WF/clean/khis_dispensary_data.xlsx",
                       sheet = "MOH705A", skip=1) %>%
   rename_all(tolower) %>%
   dplyr::mutate(dispensary = case_when(dispensary == "Ganze H/C" ~ "Ganze",
-                                TRUE ~ dispensary))
+                                TRUE ~ dispensary)) %>%
+  left_join(subcounty_hf %>% select(-dispensary), 
+            by = c("dispensary" = "short_f_name"))
 
 
 ### convert moh705A from wide to long format..
@@ -160,7 +163,10 @@ moh705B <- readxl::read_excel("../data/WF/clean/khis_dispensary_data.xlsx",
   rename_all(tolower) %>%
   select(-subcounty) %>%
   mutate(dispensary = case_when(dispensary == "Ganze H/C" ~ "Ganze",
-                                TRUE ~ dispensary))
+                                TRUE ~ dispensary))  %>%
+  left_join(subcounty_hf %>% select(-dispensary), 
+            by = c("dispensary" = "short_f_name"))
+
 
 # reshape moh705B data
 moh705B <- reshape_moh705(moh705B) |>

@@ -1,7 +1,7 @@
 {
-  "hash": "75cc74fa2c061cb10228d563556ff989",
+  "hash": "5dbf953ceab4a925151b81a2e8ed68a9",
   "result": {
-    "markdown": "---\ntitle: \"Ganze\"\n---\n\n\nThere were two dispensaries in Ganze subcounty: Ganze and Jaribuni.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](ganze_files/figure-html/ganze-map-1.png){width=576}\n:::\n:::\n\n\n## Malaria trends\n::: {.panel-tabset}\n\n## Under 5\n\n\n::: {.cell}\n\n:::\n\n\n## Over 5\n\n\n::: {.cell}\n\n:::\n\n\n:::\n\n\n------------------------------------------------------------------------\n\n\n## Malaria treatment\n\n::: {.panel-tabset}\n\n## Under 5\n\n## Over 5\n\n## Malaria in pregnancy\n\n:::\n\n------------------------------------------------------------------------\n\n\n## Bednets\n::: {.panel-tabset}\n\n## Access\n\n\n## Use\n\n:::\n\n------------------------------------------------------------------------",
+    "markdown": "---\ntitle: \"Ganze\"\n---\n\n\nThere were two dispensaries in Ganze subcounty: Ganze and Jaribuni.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](ganze_files/figure-html/ganze-map-1.png){width=576}\n:::\n:::\n\n\n## Malaria trends\n\n::: panel-tabset\n## Under 5\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](ganze_files/figure-html/ganze-u5-1.png){width=1152}\n:::\n:::\n\n\n## Over 5\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](ganze_files/figure-html/ganze-o5-1.png){width=1152}\n:::\n:::\n\n:::\n\n------------------------------------------------------------------------\n\n## Malaria treatment\n\n::: panel-tabset\n## Under 5\n\n## Over 5\n\n## Malaria in pregnancy\n:::\n\n------------------------------------------------------------------------\n\n## Bednets\n\n::: panel-tabset\n## Access\n\n## Use\n:::\n\n------------------------------------------------------------------------\n",
     "supporting": [
       "ganze_files"
     ],

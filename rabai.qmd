@@ -15,10 +15,9 @@ source("src/maps.R")
 rabai_hf
 ```
 
-
 ## Malaria trends
-::: {.panel-tabset}
 
+::: panel-tabset
 ## Under 5
 
 ```{r}
@@ -26,8 +25,12 @@ rabai_hf
 #| echo: false
 #| warning: false
 #| fig-width: 12
-#| fig-height: 12
+#| fig-height: 6
 
+source("src/moh705.R")
+
+plot_malaria_cases(moh705A_long %>% filter(subcounty == "Rabai"), 
+                   "under-5 years")
 ```
 
 ## Over 5
@@ -37,40 +40,33 @@ rabai_hf
 #| echo: false
 #| warning: false
 #| fig-width: 12
-#| fig-height: 12
+#| fig-height: 6
 
+plot_malaria_cases(moh705B_long %>% filter(subcounty == "Rabai"), "over-5 years")
 
 ```
-
 :::
-
 
 ------------------------------------------------------------------------
 
-
 ## Malaria treatment
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Under 5
 
 ## Over 5
 
 ## Malaria in pregnancy
-
 :::
 
 ------------------------------------------------------------------------
 
-
 ## Bednets
-::: {.panel-tabset}
 
+::: panel-tabset
 ## Access
 
-
 ## Use
-
 :::
 
 ------------------------------------------------------------------------
