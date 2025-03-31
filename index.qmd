@@ -12,15 +12,15 @@ rm(list=ls())
 
 ## Welcome to The Net Project.
 
-|                                  |                                                           |
+|                                  |                                                                   |
 |---------------------------|---------------------------------------------|
-| **Title of the intervention**    | The Net-Community Based Malaria Programme                 |
-| **Lead applicant**               | Amici del Mondo - World Friends Onlus (WF)                |
-| **Partner**                      | Department of Health, Kilifi County                       |
-|                                  | Centro Salute Globale della Regione Toscana, A.O.U. Meyer |
-| **Country of the intervention**  | Kenya                                                     |
-| **Location of the intervention** | Kilifi County (Ganze, Kaloleni Kilifi North, Kilifi South, Rabai)  |
-| **Duration of the intervention** | 24 months                                                 |
+| **Title of the intervention**    | The Net-Community Based Malaria Programme                         |
+| **Lead applicant**               | Amici del Mondo - World Friends Onlus (WF)                        |
+| **Partner**                      | Department of Health, Kilifi County                               |
+|                                  | Centro Salute Globale della Regione Toscana, A.O.U. Meyer         |
+| **Country of the intervention**  | Kenya                                                             |
+| **Location of the intervention** | Kilifi County (Ganze, Kaloleni Kilifi North, Kilifi South, Rabai) |
+| **Duration of the intervention** | 24 months                                                         |
 
 ------------------------------------------------------------------------
 
