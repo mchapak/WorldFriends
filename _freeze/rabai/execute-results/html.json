@@ -1,5 +1,5 @@
 {
-  "hash": "43b42cbfb45a394c9b8423587e6f2315",
+  "hash": "84a6774183fab1be3c674d24c05acc36",
   "result": {
     "markdown": "---\ntitle: \"Rabai\"\n---\n\n\nThere were two dispensaries in Rabai subcounty: Lenga and Makanzani.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](rabai_files/figure-html/rabai-map-1.png){width=672}\n:::\n:::\n\n\n## Malaria trends\n\n::: panel-tabset\n## Under 5\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](rabai_files/figure-html/rabai-u5-1.png){width=1152}\n:::\n:::\n\n\n## Over 5\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](rabai_files/figure-html/rabai-o5-1.png){width=1152}\n:::\n:::\n\n:::\n\n------------------------------------------------------------------------\n\n## Malaria treatment\n\n::: panel-tabset\n## Under 5\n\n## Over 5\n\n## Malaria in pregnancy\n:::\n\n------------------------------------------------------------------------\n\n## Bednets\n\n::: panel-tabset\n## Access\n\n## Use\n:::\n\n------------------------------------------------------------------------\n",
     "supporting": [
