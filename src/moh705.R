@@ -8,6 +8,10 @@ library(lubridate)
 library(tibble)
 library(tidyr)
 
+source("src/functions.R")
+
+
+
 # generate names of health facilities in the sub-counties
 subcounty_hf <- tibble(
   subcounty = c("Ganze", "Ganze", "Kaloleni", "Kaloleni",
@@ -75,7 +79,7 @@ plot_malaria_cases <- function(data, title_text, file_name) {
                size = 2) + 
     
     # Labels and theme
-    labs(title = paste("Monthly", title_text, "malaria cases"),
+    labs(title = "", # paste("Monthly", title_text, "malaria cases"),
          x = "Month-Year of reporting",
          y = "Number of Cases",
          color = "Case Type",
@@ -153,6 +157,15 @@ fig2_moh705A <- plot_malaria_cases(moh705A_long, "under-5 years")
 save_plot(fig2_moh705A, "images/fig2_moh705A.png")
 
 
+# GRAPH 3: combined STC for all subcounties
+total_moh705A <- moh705A_long %>%
+  group_by(subcounty, my, case_type) %>%
+  summarise(total = sum(count, na.rm = TRUE)) %>%
+  ungroup()
+
+fig3_moh705A <- plot_total_malaria_cases(total_moh705A, "under-5")                             
+
+
 #===============================================================================
 # STEP 2: OVER 5 MALARIA SUSPECTED, TESTED, CONFIRMED
 #===============================================================================
@@ -185,11 +198,20 @@ moh705B_long$case_type <- factor(moh705B_long$case_type,
                                  levels = c("suspected", "tested", "confirmed"),
                                  labels = c("Suspected", "Tested", "Confirmed"))
 
-# GRAPH 3: shows line trend for suspected, tested, confirmed for each dispensary
-fig3_moh705B <- plot_malaria_cases(moh705B_long, "over-5 years")
+# GRAPH 4: shows line trend for suspected, tested, confirmed for each dispensary
+fig4_moh705B <- plot_malaria_cases(moh705B_long, "over-5 years")
 
-save_plot(fig3_moh705B, "images/fig3_moh705B.png")
+save_plot(fig4_moh705B, "images/fig4_moh705B.png")
 
+
+# GRAPH 5: combined STC for all subcounties
+total_moh705B <- moh705B_long %>%
+  group_by(subcounty, my, case_type) %>%
+  summarise(total = sum(count, na.rm = TRUE)) %>%
+  ungroup()
+
+fig5_moh705B <- plot_total_malaria_cases(total_moh705B, "over-5")
+# fig5_moh705B
 
 #===============================================================================
 # STEP 3: GENERATE COUNTY GRAPHS
