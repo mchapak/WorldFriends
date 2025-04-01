@@ -81,16 +81,24 @@ map_cols <- c('#8dd3c7', '#ffffb3', '#bebada', '#d8b365', '#b3de69')
 
 fig_chp_subcounty <- ggplot(total_subcounty_chp_reports, 
                             aes(x = prop_have_net, y = reorder(sub_county, prop_have_net))) +
+  
   geom_col(fill = map_cols) +
-  geom_text(aes(label = paste0(prop_have_net, "%")),  # Display proportion as percentage
+  
+  geom_text(aes(label = paste0(prop_have_net, 
+                               " (n=", n_sensitized, ")")),  # Display proportion as percentage
             hjust = -0.1, size = 5, color = "black", fontface = "bold") +  # Adjust text position
-  labs(title = "Proportion of people with nets\n out of those sensitized",
-       x = "Proportion of people with nets out of those sensitized",
+  
+  labs(#title = "Proportion of people with nets\n out of those sensitized",
+       x = "Proportion of people with nets out of those sensitized (n)",
        y = "Sub-County") +
+  
+  scale_x_continuous(labels = function(x) paste0(x, "%"), limits = c(0, 100)) +
+  
   theme_minimal() +
+  
   theme(axis.text = element_text(size = 12),
         axis.title = element_text(size = 14, face = "bold"))
-# fig_chp_subcounty
+fig_chp_subcounty
 
 # SUMMARY : CHP reports by dispensary
 total_hf_chp_reports <- chp_long %>%

@@ -64,7 +64,7 @@ fig5_moh705B
 
 ## Net ownership
 ```{r}
-#| label: generate-indicators-net-usage
+#| label: generate-indicators-net-ownership
 #| echo: false
 #| warning: false
 #| fig-width: 12
@@ -73,6 +73,16 @@ fig5_moh705B
 fig_chp_subcounty
 
 ```
-## Net usage
 
+## Net usage
+```{r}
+#| label: generate-indicators-net-usage
+#| echo: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 6
+
+# fig_chp_subcounty
+
+```
 :::
