@@ -20,21 +20,22 @@ library(tibble)
 format_data <- function(data){
   data <- data %>%
     rename_all(tolower) %>%
-    mutate(data = case_when(data == "People sensitised" ~ "n_sensitized",
-                            data == "RDT Tests done" ~ "n_rdt",
-                            data == "AL Treatment" ~ "n_treated",
-                            data == "Malaria cases follow up" ~ "n_malaria_followed",
-                            data == "Number of people who slept under a net the night before" ~ "n_sleep_net",
-                            data == "Number of people who have at least one net in their household" ~ "n_have_net",
-                            data == "Report on malaria DAR sent to CHEW" ~ "n_reports_chew",
-                            data == "Report on malaria MOH100 sent to Dispensary" ~ "n_reports_ disp")) %>%
+    rename(var_name = data) %>%
+    mutate(var_name = case_when(var_name == "People sensitised" ~ "n_sensitized",
+                                var_name == "RDT Tests done" ~ "n_rdt",
+                                var_name == "AL Treatment" ~ "n_treated",
+                                var_name == "Malaria cases follow up" ~ "n_malaria_followed",
+                                var_name == "Number of people who slept under a net the night before" ~ "n_sleep_net",
+                                var_name == "Number of people who have at least one net in their household" ~ "n_have_net",
+                                var_name == "Report on malaria DAR sent to CHEW" ~ "n_reports_chew",
+                                var_name == "Report on malaria MOH100 sent to Dispensary" ~ "n_reports_disp")) %>%
     tidyr::pivot_longer(
-      cols = -c(sub_county, dispensary, data),
+      cols = -c(sub_county, dispensary, var_name),
       names_to = "date",
       values_to = "count") %>%
     
     tidyr::pivot_wider(
-      names_from = data,
+      names_from = var_name,
       values_from = count) %>%
     rename_all(tolower)  %>%
       
@@ -45,26 +46,67 @@ format_data <- function(data){
   }
 
 
-chp_ganze <- readxl::read_excel("data/WF/clean/chp_data_summary.xlsx", 
-                                sheet = "ganze")
-chp_ganze <- format_data(chp_ganze)
+read_chp_data <- function(subcounty){
+  readxl::read_excel("data/WF/clean/chp_data_summary.xlsx", 
+                     sheet = subcounty)
+}
+  
+ganze <- read_chp_data("ganze")
+kf_north <- read_chp_data("klf_north")
+kf_south <- read_chp_data("klf_south")
+kaloleni <- read_chp_data("kaloleni")
+rabai <- read_chp_data("rabai")
+all_subcounties <- rbind(ganze, kf_north, kf_south, kaloleni, rabai)
+
+chp_long <- format_data(all_subcounties) 
 
 
-chp_klfnorth <- readxl::read_excel("data/WF/clean/chp_data_summary.xlsx", 
-                                sheet = "klf_north")
-chp_klfnorth <- format_data(chp_klfnorth)
+# SUMMARY : CHP reports by county
+total_subcounty_chp_reports <- chp_long %>%
+  group_by(sub_county) %>%
+  summarise(n_sensitized = sum(n_sensitized, na.rm = TRUE),
+            n_rdt = sum(n_rdt, na.rm = TRUE),
+            n_treated = sum(n_treated, na.rm = TRUE),
+            n_malaria_followed = sum(n_malaria_followed, na.rm = TRUE),
+            n_sleep_net = sum(n_sleep_net, na.rm = TRUE),
+            n_have_net = sum(n_have_net, na.rm = TRUE),
+            n_reports_chew = sum(n_reports_chew, na.rm = TRUE),
+            n_reports_disp = sum(n_reports_disp, na.rm = TRUE)) %>%
+  mutate(prop_have_net = round(100*n_have_net/n_sensitized, 0),
+         prop_sleep_net = round(100*n_sleep_net/n_sensitized, 0)) %>%
+  ungroup()
 
+# GRAPH by county
+map_cols <- c('#8dd3c7', '#ffffb3', '#bebada', '#d8b365', '#b3de69')
 
-chp_klfsouth <- readxl::read_excel("data/WF/clean/chp_data_summary.xlsx", 
-                                sheet = "klf_south")
-chp_klfsouth <- format_data(chp_klfsouth)
+fig_chp_subcounty <- ggplot(total_subcounty_chp_reports, 
+                            aes(x = prop_have_net, y = reorder(sub_county, prop_have_net))) +
+  geom_col(fill = map_cols) +
+  geom_text(aes(label = paste0(prop_have_net, "%")),  # Display proportion as percentage
+            hjust = -0.1, size = 5, color = "black", fontface = "bold") +  # Adjust text position
+  labs(title = "Proportion of people with nets\n out of those sensitized",
+       x = "Proportion of people with nets out of those sensitized",
+       y = "Sub-County") +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14, face = "bold"))
+# fig_chp_subcounty
 
+# SUMMARY : CHP reports by dispensary
+total_hf_chp_reports <- chp_long %>%
+  group_by(dispensary) %>%
+  summarise(n_sensitized = sum(n_sensitized, na.rm = TRUE),
+            n_rdt = sum(n_rdt, na.rm = TRUE),
+            n_treated = sum(n_treated, na.rm = TRUE),
+            n_malaria_followed = sum(n_malaria_followed, na.rm = TRUE),
+            n_sleep_net = sum(n_sleep_net, na.rm = TRUE),
+            n_have_net = sum(n_have_net, na.rm = TRUE),
+            n_reports_chew = sum(n_reports_chew, na.rm = TRUE),
+            n_reports_disp = sum(n_reports_disp, na.rm = TRUE)) %>%
+  mutate(prop_have_net = round(100*n_have_net/n_sensitized, 0),
+         prop_sleep_net = round(100*n_sleep_net/n_sensitized, 0)) %>%
+  ungroup() %>%
+  left_join(subcounty_hf %>% select(-dispensary), 
+            by = c("dispensary" = "short_f_name"))
 
-chp_kaloleni <- readxl::read_excel("data/WF/clean/chp_data_summary.xlsx", 
-                                sheet = "kaloleni")
-chp_kaloleni <- format_data(chp_kaloleni)
-
-
-chp_rabai <- readxl::read_excel("data/WF/clean/chp_data_summary.xlsx", 
-                                sheet = "rabai")
-chp_rabai <- format_data(chp_rabai)
+# GRAPH by dispensary

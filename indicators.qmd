@@ -9,6 +9,7 @@ title: "Overview of indicators"
 
 source("src/functions.R")
 source("src/moh705.R")
+source("src/chp_data.R")
 ```
 
 ## Reporting rates
@@ -57,3 +58,21 @@ fig5_moh705B
 :::
 
 ------------------------------------------------------------------------
+
+## Net ownership and usage
+::: panel-tabset
+
+## Net ownership
+```{r}
+#| label: generate-indicators-net-usage
+#| echo: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 6
+
+fig_chp_subcounty
+
+```
+## Net usage
+
+:::
