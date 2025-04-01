@@ -77,13 +77,14 @@ kilifi <- ggplot() +
   coord_sf(expand = FALSE) +
   geom_text(aes(x=38.4, y=-2.0, label = "Kilifi County")) +
   theme_void()
-kilifi
+# kilifi
 
 # crop map of Kilifi to show area around study sub-counties
 kilifi_crop <- st_crop(ke_map, xmin = 39, xmax = 40.3,
                        ymin = -4, ymax = -2.25)
-map_cols <- c('#8dd3c7', '#ffffb3', '#bebada', '#bdbdbd', '#bdbdbd', 
-              '#d8b365', '#b3de69') # '#80b1d3', '#fdb462',
+
+map_cols <- c('#8dd3c7', '#d8b365', '#ef8a62', '#bebada', '#bdbdbd', '#bdbdbd', '#b3de69')
+
 # Magarini and Malindi mapped as gray
 
 
