@@ -12,6 +12,7 @@ There were two dispensaries in Kilifi North subcounty: Kiwandani and Kadzinuni.
 
 source("src/maps.R")
 
+# plot
 kn_hf
 ```
 

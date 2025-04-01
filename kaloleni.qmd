@@ -12,6 +12,7 @@ There were two dispensaries in Kaloleni subcounty: Kinarani and Mgamboni.
 
 source("src/maps.R")
 
+# plot
 kaloleni_hf
 ```
 
