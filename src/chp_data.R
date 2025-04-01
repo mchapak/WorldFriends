@@ -73,20 +73,22 @@ total_subcounty_chp_reports <- chp_long %>%
             n_reports_chew = sum(n_reports_chew, na.rm = TRUE),
             n_reports_disp = sum(n_reports_disp, na.rm = TRUE)) %>%
   mutate(prop_have_net = round(100*n_have_net/n_sensitized, 0),
-         prop_sleep_net = round(100*n_sleep_net/n_sensitized, 0)) %>%
+         prop_use_net = round(100*n_sleep_net/n_sensitized, 0)) %>%
   ungroup()
 
 # GRAPH by county
 map_cols <- c('#8dd3c7', '#ffffb3', '#bebada', '#d8b365', '#b3de69')
 
-fig_chp_subcounty <- ggplot(total_subcounty_chp_reports, 
-                            aes(x = prop_have_net, y = reorder(sub_county, prop_have_net))) +
+fig_own_net_subcounty <- ggplot(total_subcounty_chp_reports, 
+                            aes(x = prop_have_net, 
+                                y = reorder(sub_county, prop_have_net),
+                                fill = sub_county)) +
   
   geom_col(fill = map_cols) +
   
-  geom_text(aes(label = paste0(prop_have_net, 
+  geom_text(aes(label = paste0(paste0(prop_have_net, "%"), 
                                " (n=", n_sensitized, ")")),  # Display proportion as percentage
-            hjust = -0.1, size = 5, color = "black", fontface = "bold") +  # Adjust text position
+            hjust = -0.1, size = 7, color = "black", fontface = "bold") +  # Adjust text position
   
   labs(#title = "Proportion of people with nets\n out of those sensitized",
        x = "Proportion of people with nets out of those sensitized (n)",
@@ -96,9 +98,36 @@ fig_chp_subcounty <- ggplot(total_subcounty_chp_reports,
   
   theme_minimal() +
   
-  theme(axis.text = element_text(size = 12),
-        axis.title = element_text(size = 14, face = "bold"))
-fig_chp_subcounty
+  theme(axis.text = element_text(size = 16),
+        axis.title = element_text(size = 20, face = "bold"))
+# fig_own_net_subcounty
+
+
+# GRAPH: proportion of people who slept under a net the previous night
+fig_use_net_subcounty <- ggplot(total_subcounty_chp_reports, 
+                                aes(x = prop_use_net, 
+                                    y = reorder(sub_county, prop_use_net),
+                                    fill = sub_county)) +
+  
+  geom_col(fill = map_cols) +
+  
+  geom_text(aes(label = paste0(paste0(prop_use_net, "%"), 
+                               " (n=", n_sensitized, ")")),  # Display proportion as percentage
+            hjust = -0.1, size = 7, color = "black", fontface = "bold") +  # Adjust text position
+  
+  labs(#title = "Proportion of people with nets\n out of those sensitized",
+    x = "Proportion of people using nets out of those sensitized (n)",
+    y = "Sub-County") +
+  
+  scale_x_continuous(labels = function(x) paste0(x, "%"), limits = c(0, 100)) +
+  
+  theme_minimal() +
+  
+  theme(axis.text = element_text(size = 16),
+        axis.title = element_text(size = 20, face = "bold"))
+fig_use_net_subcounty
+
+
 
 # SUMMARY : CHP reports by dispensary
 total_hf_chp_reports <- chp_long %>%
