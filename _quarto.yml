@@ -10,6 +10,7 @@ project:
     - kilifinorth.qmd
     - kilifisouth.qmd
     - rabai.qmd
+    - qualitative.qmd
   preview: 
     port: 5761
 
@@ -27,6 +28,7 @@ website:
       - kilifinorth.qmd
       - kilifisouth.qmd
       - rabai.qmd
+      - qualitative.qmd
   sidebar:
     style: "docked"
     search: true
@@ -39,6 +41,7 @@ website:
       - kilifinorth.qmd
       - kilifisouth.qmd
       - rabai.qmd
+      - qualitative.qmd
 
 format:
   html:
