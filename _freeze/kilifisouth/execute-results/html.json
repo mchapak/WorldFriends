@@ -1,5 +1,5 @@
 {
-  "hash": "f43398842d49abd706541c518885c8b7",
+  "hash": "f726a93030651ca37dff750c2820f330",
   "result": {
     "markdown": "---\ntitle: \"Kilifi South\"\n---\n\n\n## Study sites\n\nThere were two dispensaries in Kilifi South: Pingilikani and Tunzanani.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](kilifisouth_files/figure-html/ks-map-1.png){width=672}\n:::\n:::\n\n\n------------------------------------------------------------------------\n\n## Malaria trends\n\n::: panel-tabset\n## Under 5\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](kilifisouth_files/figure-html/ganze-u5-1.png){width=1152}\n:::\n:::\n\n\n## Over 5\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](kilifisouth_files/figure-html/ganze-o5-1.png){width=1152}\n:::\n:::\n\n:::\n\n------------------------------------------------------------------------\n\n## Malaria treatment\n\n::: panel-tabset\n## Under 5\n\n## Over 5\n\n## Malaria in pregnancy\n:::\n\n------------------------------------------------------------------------\n\n## Bednets\n\n::: panel-tabset\n## Access\n\n## Use\n:::\n\n------------------------------------------------------------------------\n",
     "supporting": [

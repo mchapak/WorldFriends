@@ -52,6 +52,7 @@ Total number of <span style='color:#bdbdbd'>**suspected**</span>, <span style='c
 #| fig-width: 12
 #| fig-height: 15
 
+# plot figure
 fig5_moh705B
 
 ```
@@ -71,6 +72,7 @@ Proportion of people who own a net over the study period.
 #| fig-width: 12
 #| fig-height: 6
 
+# plot fig
 fig_own_net_subcounty
 
 ```

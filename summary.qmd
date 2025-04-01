@@ -23,12 +23,13 @@ This project aimed to “Contribute to the achievement of the Sustainable Develo
 We expected to achieve these goals by implementing several activities:
 
 -   prevention of transmission through raising awareness on use of bed nets
--   capacity building of *\[missing text\]* and community case management
+-   capacity building of CHPs and community case management officers
 -   strengthening of data collection tools at community level and county monitoring mechanisms (Kenya Health Information System)
 
 This report aims to document the impact of The Net’s activities and their outcomes in Kilifi County, describe the acceptance and sustainability of the initiative by the beneficiaries and stakeholders.
 
 ### Study sites
+The map below shows the location of the 10 health facilities within the 5 sub-counties (<span style='color:#8dd3c7'>**Ganze**</span>, <span style='color:#d8b365'>**Kaloleni**</span>, <span style='color:#ef8a62'>**Kilifi North**</span>, <span style='color:#bebada'>**Kilifi South**</span>, <span style='color:#b3de69'>**Rabai**</span>) that participated in the study. Malindi and Magarini sub-counties shown in <span style='color:#bdbdbd'>**gray**</span> were not part of the study.
 
 ```{r}
 #| label: study-locations
@@ -38,6 +39,7 @@ This report aims to document the impact of The Net’s activities and their outc
 #| fig-width: 6
 #| fig-height: 9
 
+# plot
 source("src/maps.R")
 
 fig1_study_locations

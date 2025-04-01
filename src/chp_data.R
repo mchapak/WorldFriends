@@ -77,7 +77,7 @@ total_subcounty_chp_reports <- chp_long %>%
   ungroup()
 
 # GRAPH by county
-map_cols <- c('#8dd3c7', '#ffffb3', '#bebada', '#d8b365', '#b3de69')
+map_cols <- c('#8dd3c7', '#ef8a62', '#bebada', '#d8b365', '#b3de69')
 
 fig_own_net_subcounty <- ggplot(total_subcounty_chp_reports, 
                             aes(x = prop_have_net, 
