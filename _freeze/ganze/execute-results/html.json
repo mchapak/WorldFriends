@@ -1,5 +1,5 @@
 {
-  "hash": "5d8c9892e51bb25b044da1d71a689cec",
+  "hash": "b56ee4c1b4a2f6e1816c8393b2ff2be5",
   "result": {
     "markdown": "---\ntitle: \"Ganze\"\n---\n\n\nThere were two dispensaries in Ganze subcounty: Ganze and Jaribuni.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](ganze_files/figure-html/ganze-map-1.png){width=576}\n:::\n:::\n\n\n## Malaria trends\n\n::: panel-tabset\n## Under 5\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](ganze_files/figure-html/ganze-u5-1.png){width=1152}\n:::\n:::\n\n\n## Over 5\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](ganze_files/figure-html/ganze-o5-1.png){width=1152}\n:::\n:::\n\n:::\n\n------------------------------------------------------------------------\n\n## Malaria treatment\n\n::: panel-tabset\n## Under 5\n\n## Over 5\n\n## Malaria in pregnancy\n:::\n\n------------------------------------------------------------------------\n\n## Bednets\n\n::: panel-tabset\n## Access\n\n## Use\n:::\n\n------------------------------------------------------------------------\n",
     "supporting": [

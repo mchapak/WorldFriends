@@ -1,5 +1,5 @@
 {
-  "hash": "c358856f958c9078c0dcc0f4e7090268",
+  "hash": "871ab72cf0f1019d91798200fdd0d6db",
   "result": {
     "markdown": "---\ntitle: \"Kaloleni\"\n---\n\n\nThere were two dispensaries in Kaloleni subcounty: Kinarani and Mgamboni.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](kaloleni_files/figure-html/kaloleni-map-1.png){width=672}\n:::\n:::\n\n\n------------------------------------------------------------------------\n\n## Malaria trends\n\n::: panel-tabset\n## Under 5\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](kaloleni_files/figure-html/ganze-u5-1.png){width=1152}\n:::\n:::\n\n\n## Over 5\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](kaloleni_files/figure-html/ganze-o5-1.png){width=1152}\n:::\n:::\n\n:::\n\n------------------------------------------------------------------------\n\n## Malaria treatment\n\n::: panel-tabset\n## Under 5\n\n## Over 5\n\n## Malaria in pregnancy\n:::\n\n------------------------------------------------------------------------\n\n## Bednets\n\n::: panel-tabset\n## Access\n\n## Use\n:::\n\n------------------------------------------------------------------------\n",
     "supporting": [
