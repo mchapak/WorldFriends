@@ -9,10 +9,8 @@
 # User-specific files
 .Ruserdata
 
-
 # RStudio files
 .Rproj.user/
-
 
 # knitr and R markdown default cache directories
 *_cache/
@@ -20,9 +18,7 @@
 
 .DS_Store
 
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
+
 
 # R Environment Variables
 .Renviron
@@ -34,3 +30,15 @@
 /data/WF/raw
 /data/WF/project_docs/
 /data/gadm41_KEN_shp/
+
+# code
+/src/
+index.qmd
+summary.qmd
+indicators.qmd
+ganze.qmd
+kaloleni.qmd
+kilifinorth.qmd
+kilifisouth.qmd
+rabai.qmd
+qualitative.qmd
