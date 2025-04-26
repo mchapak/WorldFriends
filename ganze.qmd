@@ -21,7 +21,7 @@ source("src/maps.R")
 ganze_hf
 ```
 
-## Malaria trends
+## Malaria trends per health facility
 
 ::: panel-tabset
 ## Under 5

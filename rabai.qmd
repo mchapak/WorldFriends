@@ -16,7 +16,7 @@ source("src/maps.R")
 rabai_hf
 ```
 
-## Malaria trends
+## Malaria trends per health facility
 
 ::: panel-tabset
 ## Under 5

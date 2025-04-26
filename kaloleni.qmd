@@ -18,7 +18,7 @@ kaloleni_hf
 
 ------------------------------------------------------------------------
 
-## Malaria trends
+## Malaria trends per health facility
 
 ::: panel-tabset
 ## Under 5
