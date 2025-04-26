@@ -109,13 +109,13 @@ total_hf_chp_reports <- chp_long %>%
 
 # GRAPH by dispensary
 fig_use_net_ganze <- fxn_fig_net_dispensary(total_hf_chp_reports, "Ganze", "prop_use_net","")
-fig_use_net_Kaloleni <- fxn_fig_net_dispensary(total_hf_chp_reports, "Kaloleni", "prop_use_net","")
+fig_use_net_kaloleni <- fxn_fig_net_dispensary(total_hf_chp_reports, "Kaloleni", "prop_use_net","")
 fig_use_net_klfnorth <- fxn_fig_net_dispensary(total_hf_chp_reports, "KF North", "prop_use_net","")
 fig_use_net_klfsouth <- fxn_fig_net_dispensary(total_hf_chp_reports, "KF South", "prop_use_net","")
 fig_use_net_rabai <- fxn_fig_net_dispensary(total_hf_chp_reports, "Rabai", "prop_use_net","")
 
 fig_have_net_ganze <- fxn_fig_net_dispensary(total_hf_chp_reports, "Ganze", "prop_have_net","")
-fig_have_net_Kaloleni <- fxn_fig_net_dispensary(total_hf_chp_reports, "Kaloleni", "prop_have_net","")
+fig_have_net_kaloleni <- fxn_fig_net_dispensary(total_hf_chp_reports, "Kaloleni", "prop_have_net","")
 fig_have_net_klfnorth <- fxn_fig_net_dispensary(total_hf_chp_reports, "KF North", "prop_have_net","")
 fig_have_net_klfsouth <- fxn_fig_net_dispensary(total_hf_chp_reports, "KF South", "prop_have_net","")
 fig_have_net_rabai <- fxn_fig_net_dispensary(total_hf_chp_reports, "Rabai", "prop_have_net","")
