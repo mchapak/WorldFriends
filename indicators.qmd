@@ -29,7 +29,7 @@ source("src/chp_data.R")
 ::: panel-tabset
 ## Under 5
 
-Total number of <span style='color:#bdbdbd'>**suspected**</span>, <span style='color:#7570b3'>**tested**</span>, and <span style='color:#d95f02'>**confirmed**</span> malaria cases by sub-county.
+Total number of [**suspected**]{style="color:#bdbdbd"}, [**tested**]{style="color:#7570b3"}, and [**confirmed**]{style="color:#d95f02"} malaria cases by sub-county.
 
 ```{r}
 #| label: generate-indicators-u5
@@ -43,7 +43,7 @@ fig3_moh705A
 
 ## Over 5
 
-Total number of <span style='color:#bdbdbd'>**suspected**</span>, <span style='color:#7570b3'>**tested**</span>, and <span style='color:#d95f02'>**confirmed**</span> malaria cases by sub-county.
+Total number of [**suspected**]{style="color:#bdbdbd"}, [**tested**]{style="color:#7570b3"}, and [**confirmed**]{style="color:#d95f02"} malaria cases by sub-county.
 
 ```{r}
 #| label: generate-indicators-o5
@@ -60,11 +60,13 @@ fig5_moh705B
 
 ------------------------------------------------------------------------
 
-## Net ownership and usage
-::: panel-tabset
+## Bednet ownership and usage
 
+::: panel-tabset
 ## Net ownership
-Proportion of people who own a net over the study period.
+
+Proportion of people who owned a net over the study period.
+
 ```{r}
 #| label: generate-indicators-net-ownership
 #| echo: false
@@ -78,7 +80,9 @@ fig_own_net_subcounty
 ```
 
 ## Net usage
+
 Proportion of people who slept under a net the previous night over the study period.
+
 ```{r}
 #| label: generate-indicators-net-usage
 #| echo: false
