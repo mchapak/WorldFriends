@@ -1,3 +1,8 @@
+# SET GLOBAL VALUES
+map_cols <- c('#8dd3c7', '#ef8a62', '#bebada', '#d8b365', '#b3de69')
+disp_cols <- c('#8dd3c7', '#ef8a62')
+
+
 # Plot the total number of malaria cases by county
 
 plot_total_malaria_cases <- function(data, title_text, file_name) {
@@ -73,3 +78,55 @@ plot_total_malaria_cases <- function(data, title_text, file_name) {
 #         axis.title = element_text(size = 20, face = "bold"))
 #   return(plot)
 # }
+
+
+# GRAPH: OVERALL NET USAGE AT THE SUBCOUNTY LEVEL
+fxn_fig_net_subcounty <- function(data, x_var, x_axis_label){
+  ggplot(data, 
+         aes(x = !!sym(x_var), # use the variable whose name is stored inside x_var
+             y = reorder(sub_county, !!sym(x_var)),
+             fill = sub_county)) +
+    
+    geom_col(fill = map_cols) +
+    
+    geom_text(aes(label = paste0(paste0(!!sym(x_var), "%"), 
+                                 " (n=", n_sensitized, ")")),  # Display proportion as percentage
+              hjust = -0.1, size = 7, color = "black", fontface = "bold") +  # Adjust text position
+    
+    labs(#title = "Proportion of people with nets\n out of those sensitized",
+      x = x_axis_label,
+      y = "Sub-County") +
+    
+    scale_x_continuous(labels = function(x) paste0(x, "%"), limits = c(0, 100)) +
+    
+    theme_minimal() +
+    
+    theme(axis.text = element_text(size = 16),
+          axis.title = element_text(size = 20, face = "bold"))
+}
+
+
+# GRAPH: NET USAGE AT THE HEALTH FACILITY LEVEL
+fxn_fig_net_dispensary <- function(data, subcounty, x_var, x_axis_label){
+  ggplot(data %>% filter(sub_county == subcounty), 
+         aes(x = !!sym(x_var), # use the variable whose name is stored inside x_var
+             y = reorder(dispensary, !!sym(x_var)),
+             fill = dispensary)) +
+    
+    geom_col(fill = map_cols[1:2]) +
+    
+    geom_text(aes(label = paste0(paste0(!!sym(x_var), "%"), 
+                                 " (n=", n_sensitized, ")")),  # Display proportion as percentage
+              hjust = -0.1, size = 7, color = "black", fontface = "bold") +  # Adjust text position
+    
+    labs(#title = "Proportion of people with nets\n out of those sensitized",
+      x = x_axis_label,
+      y = "Health facility") +
+    
+    scale_x_continuous(labels = function(x) paste0(x, "%"), limits = c(0, 100)) +
+    
+    theme_minimal() +
+    
+    theme(axis.text = element_text(size = 16),
+          axis.title = element_text(size = 20, face = "bold"))
+} 

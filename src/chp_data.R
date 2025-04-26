@@ -56,12 +56,14 @@ kf_north <- read_chp_data("klf_north")
 kf_south <- read_chp_data("klf_south")
 kaloleni <- read_chp_data("kaloleni")
 rabai <- read_chp_data("rabai")
+
+# combine into one sheet
 all_subcounties <- rbind(ganze, kf_north, kf_south, kaloleni, rabai)
 
 chp_long <- format_data(all_subcounties) 
 
 
-# SUMMARY : CHP reports by county
+# SUMMARY : CHP reports by sub-county
 total_subcounty_chp_reports <- chp_long %>%
   group_by(sub_county) %>%
   summarise(n_sensitized = sum(n_sensitized, na.rm = TRUE),
@@ -77,61 +79,22 @@ total_subcounty_chp_reports <- chp_long %>%
   ungroup()
 
 # GRAPH by county
-map_cols <- c('#8dd3c7', '#ef8a62', '#bebada', '#d8b365', '#b3de69')
+# 1. proportion of people who own a net the previous night
 
-fig_own_net_subcounty <- ggplot(total_subcounty_chp_reports, 
-                            aes(x = prop_have_net, 
-                                y = reorder(sub_county, prop_have_net),
-                                fill = sub_county)) +
-  
-  geom_col(fill = map_cols) +
-  
-  geom_text(aes(label = paste0(paste0(prop_have_net, "%"), 
-                               " (n=", n_sensitized, ")")),  # Display proportion as percentage
-            hjust = -0.1, size = 7, color = "black", fontface = "bold") +  # Adjust text position
-  
-  labs(#title = "Proportion of people with nets\n out of those sensitized",
-       x = "Proportion of people with nets out of those sensitized (n)",
-       y = "Sub-County") +
-  
-  scale_x_continuous(labels = function(x) paste0(x, "%"), limits = c(0, 100)) +
-  
-  theme_minimal() +
-  
-  theme(axis.text = element_text(size = 16),
-        axis.title = element_text(size = 20, face = "bold"))
+fig_own_net_subcounty <- fxn_fig_net_subcounty(total_subcounty_chp_reports, "prop_have_net", 
+                                               "Proportion of people who own a net out of those sensitized (n)")
 # fig_own_net_subcounty
 
-
-# GRAPH: proportion of people who slept under a net the previous night
-fig_use_net_subcounty <- ggplot(total_subcounty_chp_reports, 
-                                aes(x = prop_use_net, 
-                                    y = reorder(sub_county, prop_use_net),
-                                    fill = sub_county)) +
-  
-  geom_col(fill = map_cols) +
-  
-  geom_text(aes(label = paste0(paste0(prop_use_net, "%"), 
-                               " (n=", n_sensitized, ")")),  # Display proportion as percentage
-            hjust = -0.1, size = 7, color = "black", fontface = "bold") +  # Adjust text position
-  
-  labs(#title = "Proportion of people with nets\n out of those sensitized",
-    x = "Proportion of people using nets out of those sensitized (n)",
-    y = "Sub-County") +
-  
-  scale_x_continuous(labels = function(x) paste0(x, "%"), limits = c(0, 100)) +
-  
-  theme_minimal() +
-  
-  theme(axis.text = element_text(size = 16),
-        axis.title = element_text(size = 20, face = "bold"))
-fig_use_net_subcounty
+# 2: proportion of people who slept under a net the previous night
+fig_use_net_subcounty <- fxn_fig_net_subcounty(total_subcounty_chp_reports, "prop_use_net", 
+                                               "Proportion of people using nets out of those sensitized (n)")
+# fig_use_net_subcounty
 
 
-
-# SUMMARY : CHP reports by dispensary
+# Number of people who own and use nets per health facility 
+# SUMMARY : CHP reports by county
 total_hf_chp_reports <- chp_long %>%
-  group_by(dispensary) %>%
+  group_by(dispensary, sub_county) %>%
   summarise(n_sensitized = sum(n_sensitized, na.rm = TRUE),
             n_rdt = sum(n_rdt, na.rm = TRUE),
             n_treated = sum(n_treated, na.rm = TRUE),
@@ -141,9 +104,18 @@ total_hf_chp_reports <- chp_long %>%
             n_reports_chew = sum(n_reports_chew, na.rm = TRUE),
             n_reports_disp = sum(n_reports_disp, na.rm = TRUE)) %>%
   mutate(prop_have_net = round(100*n_have_net/n_sensitized, 0),
-         prop_sleep_net = round(100*n_sleep_net/n_sensitized, 0)) %>%
-  ungroup() %>%
-  left_join(subcounty_hf %>% select(-dispensary), 
-            by = c("dispensary" = "short_f_name"))
+         prop_use_net = round(100*n_sleep_net/n_sensitized, 0)) %>%
+  ungroup()
 
 # GRAPH by dispensary
+fig_use_net_ganze <- fxn_fig_net_dispensary(total_hf_chp_reports, "Ganze", "prop_use_net","")
+fig_use_net_Kaloleni <- fxn_fig_net_dispensary(total_hf_chp_reports, "Kaloleni", "prop_use_net","")
+fig_use_net_klfnorth <- fxn_fig_net_dispensary(total_hf_chp_reports, "KF North", "prop_use_net","")
+fig_use_net_klfsouth <- fxn_fig_net_dispensary(total_hf_chp_reports, "KF South", "prop_use_net","")
+fig_use_net_rabai <- fxn_fig_net_dispensary(total_hf_chp_reports, "Rabai", "prop_use_net","")
+
+fig_have_net_ganze <- fxn_fig_net_dispensary(total_hf_chp_reports, "Ganze", "prop_have_net","")
+fig_have_net_Kaloleni <- fxn_fig_net_dispensary(total_hf_chp_reports, "Kaloleni", "prop_have_net","")
+fig_have_net_klfnorth <- fxn_fig_net_dispensary(total_hf_chp_reports, "KF North", "prop_have_net","")
+fig_have_net_klfsouth <- fxn_fig_net_dispensary(total_hf_chp_reports, "KF South", "prop_have_net","")
+fig_have_net_rabai <- fxn_fig_net_dispensary(total_hf_chp_reports, "Rabai", "prop_have_net","")
