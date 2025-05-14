@@ -10,8 +10,6 @@ library(tidyr)
 
 source("src/functions.R")
 
-
-
 # generate names of health facilities in the sub-counties
 subcounty_hf <- tibble(
   subcounty = c("Ganze", "Ganze", "Kaloleni", "Kaloleni",
@@ -63,8 +61,7 @@ plot_malaria_cases <- function(data, title_text, file_name) {
                            fill = case_type)) + 
     
     # Bar plot for suspected cases
-    geom_col(data = data %>% filter(case_type == "Suspected",
-                                    ), 
+    geom_col(data = data %>% filter(case_type == "Suspected"), 
              aes(fill = case_type), 
              width = 1, alpha = 0.4) +  # Transparency to differentiate bars
     
