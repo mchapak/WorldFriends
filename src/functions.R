@@ -44,7 +44,7 @@ plot_total_malaria_cases <- function(data, title_text, file_name) {
     # Improve readability of the plot
     theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 16),
           axis.text.y = element_text(size = 18),
-          axis.title = element_text(size = 20),
+          axis.title = element_text(size = 25),
           title = element_text(size = 20),
           strip.text = element_text(size = 18, face = "bold"),
           legend.text = element_text(size = 18),
@@ -102,7 +102,7 @@ fxn_fig_net_subcounty <- function(data, x_var, x_axis_label){
     theme_minimal() +
     
     theme(axis.text = element_text(size = 16),
-          axis.title = element_text(size = 20, face = "bold"))
+          axis.title = element_text(size = 25, face = "bold"))
 }
 
 
@@ -128,5 +128,57 @@ fxn_fig_net_dispensary <- function(data, subcounty, x_var, x_axis_label){
     theme_minimal() +
     
     theme(axis.text = element_text(size = 16),
-          axis.title = element_text(size = 20, face = "bold"))
+          axis.title = element_text(size = 25, face = "bold"))
 } 
+
+
+
+# GRAPH: MALARIA TESTS AND POSITIVITY
+plot_malaria_test_type <- function(data, test_type, test_name, age, facet_var){
+  ggplot(data,
+         aes(x = period2, y = !!sym(test_type), 
+             group = case_type, 
+             color = case_type, 
+             fill = case_type)) +
+    
+    # Bar plot for suspected cases
+    geom_col(data = data %>% filter(case_type == "Tested"), 
+             aes(fill = case_type), 
+             width = 1, alpha = 0.4) +  # Transparency to differentiate bars
+    
+    # Line plot for positive
+    geom_line(data = data %>% filter(case_type == "Positive"),
+              aes(color = case_type),
+              size = 1.2) +
+    
+    # Points for tested and confirmed cases
+    geom_point(data = data %>% filter(case_type == "Positive"), 
+               aes(color = case_type), 
+               size = 2) |>
+    
+    # Labels and theme
+    labs(title = "", # paste("Monthly", title_text, "malaria cases"),
+         x = "Reporting quarter",
+         y = paste0("Number of tests for age ", age),
+         color = test_name,
+         fill = test_name) + 
+    
+    # Ensure both color and fill use the same scale
+    scale_color_manual(values = c(col_case[1], col_case[2])) +  
+    scale_fill_manual(values = c(col_case[1], col_case[2])) +  
+    
+    facet_wrap(vars(!!sym(facet_var)), ncol = 2) +
+    theme(panel.spacing.x = unit(1, "cm"),  # Horizontal space
+          panel.spacing.y = unit(2, "cm")) +  # Vertical space
+    
+    theme_minimal() +
+    
+    # Improve readability of the plot
+    theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 16),
+          axis.text.y = element_text(size = 18),
+          axis.title = element_text(size = 25),
+          title = element_text(size = 20),
+          strip.text = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 18),
+          legend.title = element_text(size = 20, face = "bold"))
+}
