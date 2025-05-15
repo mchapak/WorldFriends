@@ -4,7 +4,7 @@ project:
   render:
     - index.qmd
     - summary.qmd
-    - indicators.qmd
+    - summary_indicators.qmd
     - ganze.qmd
     - kaloleni.qmd
     - kilifinorth.qmd
@@ -22,7 +22,7 @@ website:
       - href: index.qmd
         text: Home
       - summary.qmd
-      - indicators.qmd
+      - summary_indicators.qmd
       - ganze.qmd
       - kaloleni.qmd
       - kilifinorth.qmd
@@ -35,7 +35,7 @@ website:
     contents:
       - index.qmd
       - summary.qmd
-      - indicators.qmd
+      - summary_indicators.qmd
       - ganze.qmd
       - kaloleni.qmd
       - kilifinorth.qmd
