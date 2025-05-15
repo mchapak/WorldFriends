@@ -13,7 +13,7 @@ rm(list=ls())
 ## Welcome to The Net Project.
 
 |                                  |                                                                   |
-|---------------------------|---------------------------------------------|
+|----------------------------------|-------------------------------------------------------------------|
 | **Title of the intervention**    | The Net-Community Based Malaria Programme                         |
 | **Lead applicant**               | Amici del Mondo - World Friends Onlus (WF)                        |
 | **Partner**                      | Department of Health, Kilifi County                               |
@@ -22,7 +22,7 @@ rm(list=ls())
 | **Location of the intervention** | Kilifi County (Ganze, Kaloleni Kilifi North, Kilifi South, Rabai) |
 | **Duration of the intervention** | 24 months                                                         |
 
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
 
 ### The expected output are:
 
@@ -44,7 +44,7 @@ viii. To quantify the number of intermittent preventive treatment of malaria dur
 
 ix. To determine the reporting rates of MOH 515 and MOH 705 A/B in 2022, 2023, 2024 and 2025 (first quarter) for community health extension workers and dispensaries included in the project, but also for Sub-Counties and County.
 
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
 
 ::: {.callout-note collapse="true"}
 ## Disclaimer

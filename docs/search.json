@@ -102,7 +102,7 @@
     "href": "summary.html",
     "title": "Executive summary",
     "section": "",
-    "text": "The Net - Community Based Malaria Programme was implemented in Kilifi County, Kenya from 2023 to 2025 to address low ITN usage, IPTp adherence, and malaria-related challenges. The program aimed to strengthen community-based malaria eradication mechanisms by 2024 through awareness campaigns, capacity building, and data collection improvements.\nThis report documents the impact of The Net’s activities and their outcomes in Kilifi County. It also describes the acceptance and sustainability of the initiative by the beneficiaries and stakeholders.\n\nStudy sites\nThe map below shows the location of the 10 health facilities within the 5 sub-counties (Ganze, Kaloleni, Kilifi North, Kilifi South, Rabai) that participated in the study. Malindi and Magarini sub-counties shown in gray were not part of the study."
+    "text": "The Net - Community Based Malaria Programme was implemented in Kilifi County, Kenya from 2023 to 2025 to address low ITN usage, IPTp adherence, and malaria-related challenges. The program aimed to strengthen community-based malaria eradication mechanisms by 2024 through awareness campaigns, capacity building, and data collection improvements.\nThis report documents the impact of The Net’s activities and their outcomes in Kilifi County. It also describes the acceptance and sustainability of the initiative by the beneficiaries and stakeholders.\n\nStudy sites\nThe map below shows the location of the 10 health facilities within the 5 sub-counties (Ganze, Kaloleni, Kilifi North, Kilifi South, Rabai) that participated in the study. Malindi and Magarini sub-counties shown in gray were not part of the study. However, three health facilities (Baolala and Malindi in Malindi sub-county, and Gongoni in Magarini sub-county) were surveyed as part of the qualitative study."
   },
   {
     "objectID": "indicators.html",
@@ -194,5 +194,75 @@
     "title": "Kilifi South",
     "section": "Bednet ownership and usage",
     "text": "Bednet ownership and usage\n\nNet ownershipNet usage\n\n\nProportion of people who owned a net over the study period.\n\n\n\n\n\n\n\nProportion of people who slept under a net the previous night over the study period."
+  },
+  {
+    "objectID": "summary_indicators.html",
+    "href": "summary_indicators.html",
+    "title": "Overview of indicators",
+    "section": "",
+    "text": "MOH 515MOH 705AMOH 705B"
+  },
+  {
+    "objectID": "summary_indicators.html#reporting-rates",
+    "href": "summary_indicators.html#reporting-rates",
+    "title": "Overview of indicators",
+    "section": "",
+    "text": "MOH 515MOH 705AMOH 705B"
+  },
+  {
+    "objectID": "summary_indicators.html#malaria-trends",
+    "href": "summary_indicators.html#malaria-trends",
+    "title": "Overview of indicators",
+    "section": "Malaria trends",
+    "text": "Malaria trends\n\nUnder 5Over 5\n\n\nTotal number of suspected, tested, and confirmed malaria cases by sub-county.\n\n\n\n\n\n\n\nTotal number of suspected, tested, and confirmed malaria cases by sub-county."
+  },
+  {
+    "objectID": "summary_indicators.html#malaria-testing",
+    "href": "summary_indicators.html#malaria-testing",
+    "title": "Overview of indicators",
+    "section": "Malaria testing",
+    "text": "Malaria testing\nTotal number of tests done and number positive by type (Microscopy and Rapid Diagnostic Testing (RDT))\n\nMicroscopy blood smear &lt;5 yearsMicroscopy blood smear ≥5 yearsRDT &lt;5 yearsRDT ≥5 years"
+  },
+  {
+    "objectID": "summary_indicators.html#bednet-ownership-and-usage",
+    "href": "summary_indicators.html#bednet-ownership-and-usage",
+    "title": "Overview of indicators",
+    "section": "Bednet ownership and usage",
+    "text": "Bednet ownership and usage\n\nNet ownershipNet usage\n\n\nProportion of people who owned a net over the study period.\n\n\n\n\n\n\n\nProportion of people who slept under a net the previous night over the study period."
+  },
+  {
+    "objectID": "ganze.html#malaria-testing",
+    "href": "ganze.html#malaria-testing",
+    "title": "Ganze",
+    "section": "Malaria testing",
+    "text": "Malaria testing\nTotal number of tests done and number positive by type (Microscopy and Rapid Diagnostic Testing (RDT))\n\nMicroscopy blood smear &lt;5 yearsMicroscopy blood smear ≥5 yearsRDT &lt;5 yearsRDT ≥5 years"
+  },
+  {
+    "objectID": "kaloleni.html#malaria-testing",
+    "href": "kaloleni.html#malaria-testing",
+    "title": "Kaloleni",
+    "section": "Malaria testing",
+    "text": "Malaria testing\nTotal number of tests done and number positive by type (Microscopy and Rapid Diagnostic Testing (RDT))\n\nMicroscopy blood smear &lt;5 yearsMicroscopy blood smear ≥5 yearsRDT &lt;5 yearsRDT ≥5 years"
+  },
+  {
+    "objectID": "rabai.html#malaria-testing",
+    "href": "rabai.html#malaria-testing",
+    "title": "Rabai",
+    "section": "Malaria testing",
+    "text": "Malaria testing\nTotal number of tests done and number positive by type (Microscopy and Rapid Diagnostic Testing (RDT))\n\nMicroscopy blood smear &lt;5 yearsMicroscopy blood smear ≥5 yearsRDT &lt;5 yearsRDT ≥5 years"
+  },
+  {
+    "objectID": "kilifisouth.html#malaria-testing",
+    "href": "kilifisouth.html#malaria-testing",
+    "title": "Kilifi South",
+    "section": "Malaria testing",
+    "text": "Malaria testing\nTotal number of tests done and number positive by type (Microscopy and Rapid Diagnostic Testing (RDT))\n\nMicroscopy blood smear &lt;5 yearsMicroscopy blood smear ≥5 yearsRDT &lt;5 yearsRDT ≥5 years"
+  },
+  {
+    "objectID": "kilifinorth.html#malaria-testing",
+    "href": "kilifinorth.html#malaria-testing",
+    "title": "Kilifi North",
+    "section": "Malaria testing",
+    "text": "Malaria testing\nTotal number of tests done and number positive by type (Microscopy and Rapid Diagnostic Testing (RDT))\n\nMicroscopy blood smear &lt;5 yearsMicroscopy blood smear ≥5 yearsRDT &lt;5 yearsRDT ≥5 years"
   }
 ]
