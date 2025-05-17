@@ -25,8 +25,10 @@
 
 
 /.quarto/
+/_site/
 
 # raw data
+/images/logos/
 /data/WF/raw
 /data/WF/project_docs/
 /data/gadm41_KEN_shp/
