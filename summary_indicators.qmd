@@ -118,6 +118,21 @@ fig_mrdt_o5_subcounty
 
 ------------------------------------------------------------------------
 
+## Malaria in pregnancy
+
+```{r}
+#| label: mip
+#| echo: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 15
+
+fig6_moh705B
+
+```
+
+------------------------------------------------------------------------
+
 ## Bednet ownership and usage
 
 ::: panel-tabset

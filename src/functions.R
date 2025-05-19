@@ -158,7 +158,7 @@ plot_malaria_test_type <- function(data, test_type, test_name, age, facet_var){
     
     # Labels and theme
     labs(title = "", # paste("Monthly", title_text, "malaria cases"),
-         x = "Reporting quarter",
+         x = "Month-year",
          y = paste0("Number of tests for age ", age),
          color = test_name,
          fill = test_name) + 

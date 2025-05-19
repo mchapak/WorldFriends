@@ -211,5 +211,29 @@ fig5_moh705B <- plot_total_malaria_cases(total_moh705B, "over-5")
 # fig5_moh705B
 
 #===============================================================================
-# STEP 3: GENERATE COUNTY GRAPHS
+# STEP 3: MALARIA IN PREGNANCY
 #===============================================================================
+
+moh705B_mip <- moh705B %>%
+  select(dispensary, subcounty, date, mip, month, year, my)
+
+fig6_moh705B <- ggplot(moh705B_mip, aes(x = my, y = mip)) +
+  # Bar plot for mip
+  geom_col() +
+  facet_wrap(~ subcounty, ncol = 1) +  
+  theme_minimal() +
+
+    # Labels and theme
+  labs(title = "", # paste("Monthly", title_text, "malaria cases"),
+       x = "Month-Year of reporting",
+       y = "Malaria in pregnancy") + 
+  
+  # Improve readability of the plot
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 16),
+        axis.text.y = element_text(size = 18),
+        axis.title = element_text(size = 25),
+        title = element_text(size = 20),
+        strip.text = element_text(size = 18, face = "bold"),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 20, face = "bold"))
+
