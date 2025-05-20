@@ -30,7 +30,8 @@ pacman::p_load(rmarkdown)
 #| echo: false
 #| results: asis
 
-cat('<div style="display: flex; justify-content: center; gap: 200px; align-items: center;">
+cat('<div style="display: flex; flex-direction: column; align-items: center; gap: 20px;
+      @media (min-width: 768px) { flex-direction: row; gap: 40px; }">
   <img src="images/logos/WorldFriends.png" style="height: 80px;">
   <img src="images/logos/AICS.png" style="height: 80px;">
   <img src="images/logos/CSG.JPG" style="height: 80px;">
