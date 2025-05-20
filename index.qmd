@@ -26,10 +26,11 @@ rm(list=ls())
 
 
 ```{r}
+#| label: add-logos
 #| echo: false
 #| results: asis
 
-cat('<div style="display: flex; justify-content: center; gap: 100px; align-items: center;">
+cat('<div style="display: flex; justify-content: center; gap: 200px; align-items: center;">
   <img src="images/logos/WorldFriends.png" style="height: 80px;">
   <img src="images/logos/AICS.png" style="height: 80px;">
   <img src="images/logos/CSG.JPG" style="height: 80px;">
