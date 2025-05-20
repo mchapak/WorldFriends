@@ -8,22 +8,22 @@ title: "The Net Project"
 #| warning: false
 
 rm(list=ls())
+pacman::p_load(rmarkdown)
 ```
 
 ## Welcome to The Net Project.
 
-|                                  |                                                                   |
-|----------------------------------|-------------------------------------------------------------------|
-| **Title of the intervention**    | The Net-Community Based Malaria Programme                         |
-| **Lead applicant**               | Amici del Mondo - World Friends Onlus (WF)                        |
-| **Partners**                      | Department of Health, Kilifi County                               |
-|                                  | Centro Salute Globale della Regione Toscana, A.O.U. Meyer         |
-| **Country of the intervention**  | Kenya                                                             |
+|  |  |
+|-------------------------|----------------------------------------------|
+| **Title of the intervention** | The Net-Community Based Malaria Programme |
+| **Lead applicant** | Amici del Mondo - World Friends Onlus (WF) |
+| **Partners** | Department of Health, Kilifi County |
+|  | Centro Salute Globale della Regione Toscana, A.O.U. Meyer |
+| **Country of the intervention** | Kenya |
 | **Location of the intervention** | Kilifi County (Ganze, Kaloleni Kilifi North, Kilifi South, Rabai) |
-| **Duration of the intervention** | 24 months                                                         |
+| **Duration of the intervention** | 24 months |
 
--------------------------------------------------------------------------------------------------------
-
+------------------------------------------------------------------------
 
 ```{r}
 #| label: add-logos
@@ -38,7 +38,8 @@ cat('<div style="display: flex; justify-content: center; gap: 200px; align-items
 
 </div>')
 ```
--------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------
 
 ::: {.callout-note collapse="true"}
 ### Objectives of this project
@@ -61,8 +62,8 @@ vi. To calculate the percentage of population who have access to a ITN (insectic
 
 [ix. To determine the reporting rates of MOH 515 and MOH 705 A/B in 2022, 2023, 2024 and 2025 (first quarter) for community health extension workers and dispensaries included in the project, but also for Sub-Counties and County.]{style="color:#bdbdbd"}
 :::
--------------------------------------------------------------------------------------------------------
 
+------------------------------------------------------------------------
 
 ::: {.callout-note collapse="true"}
 ## Disclaimer

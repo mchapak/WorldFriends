@@ -15,8 +15,6 @@ project:
     port: 5761
 
 website:
-
-      
   title: "The Net Project"
   navbar:
     background: primary
