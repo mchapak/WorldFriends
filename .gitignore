@@ -18,11 +18,8 @@
 
 .DS_Store
 
-
-
 # R Environment Variables
 .Renviron
-
 
 /.quarto/
 
@@ -33,13 +30,13 @@
 /data/gadm41_KEN_shp/
 
 # code
-/src/
-index.qmd
-summary.qmd
-indicators.qmd
-ganze.qmd
-kaloleni.qmd
-kilifinorth.qmd
-kilifisouth.qmd
-rabai.qmd
-qualitative.qmd
+# /src/
+# index.qmd
+# summary.qmd
+# indicators.qmd
+# ganze.qmd
+# kaloleni.qmd
+# kilifinorth.qmd
+# kilifisouth.qmd
+# rabai.qmd
+# qualitative.qmd

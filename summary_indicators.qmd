@@ -6,6 +6,7 @@ title: "Overview of indicators"
 #| label: generate-indicators
 #| echo: false
 #| warning: false
+#| results: false
 
 source("src/functions.R")
 source("src/moh705.R")
@@ -62,10 +63,12 @@ fig5_moh705B
 ------------------------------------------------------------------------
 
 ## Malaria testing
+
 Total number of tests done and number positive by type (Microscopy and Rapid Diagnostic Testing (RDT))
 
 ::: panel-tabset
-## Microscopy blood smear <5 years
+## Microscopy blood smear \<5 years
+
 ```{r}
 #| label: mbs-u5-subcounty
 #| echo: false
@@ -90,7 +93,8 @@ fig_mbs_u5_subcounty
 fig_mbs_o5_subcounty
 ```
 
-## RDT <5 years
+## RDT \<5 years
+
 ```{r}
 #| label: rdt-o5-subcounty
 #| echo: false
@@ -103,6 +107,7 @@ fig_mrdt_u5_subcounty
 ```
 
 ## RDT ≥5 years
+
 ```{r}
 #| label: mrdt-o5-subcounty
 #| echo: false
@@ -113,7 +118,6 @@ fig_mrdt_u5_subcounty
 # plot figure
 fig_mrdt_o5_subcounty
 ```
-
 :::
 
 ------------------------------------------------------------------------
