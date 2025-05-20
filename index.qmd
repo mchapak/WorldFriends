@@ -16,7 +16,7 @@ rm(list=ls())
 |----------------------------------|-------------------------------------------------------------------|
 | **Title of the intervention**    | The Net-Community Based Malaria Programme                         |
 | **Lead applicant**               | Amici del Mondo - World Friends Onlus (WF)                        |
-| **Partner**                      | Department of Health, Kilifi County                               |
+| **Partners**                      | Department of Health, Kilifi County                               |
 |                                  | Centro Salute Globale della Regione Toscana, A.O.U. Meyer         |
 | **Country of the intervention**  | Kenya                                                             |
 | **Location of the intervention** | Kilifi County (Ganze, Kaloleni Kilifi North, Kilifi South, Rabai) |
@@ -24,7 +24,23 @@ rm(list=ls())
 
 -------------------------------------------------------------------------------------------------------
 
-### The expected output are:
+
+```{r}
+#| echo: false
+#| results: asis
+
+cat('<div style="display: flex; justify-content: center; gap: 100px; align-items: center;">
+  <img src="images/logos/WorldFriends.png" style="height: 80px;">
+  <img src="images/logos/AICS.png" style="height: 80px;">
+  <img src="images/logos/CSG.JPG" style="height: 80px;">
+  <img src="images/logos/Kilifi_County.png" style="height: 80px;">
+
+</div>')
+```
+-------------------------------------------------------------------------------------------------------
+
+::: {.callout-note collapse="true"}
+### Objectives of this project
 
 i.  To quantify the number of Malaria suspected and confirmed cases (over 5 and under 5) in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.
 
@@ -43,8 +59,9 @@ vi. To calculate the percentage of population who have access to a ITN (insectic
 [viii. To quantify the number of intermittent preventive treatment of malaria during pregnancy delivered in 2022, 2023, 2024 and 2025 (first quarter) dispensaries (CHU), Sub-counties and County.]{style="color:#bdbdbd"}
 
 [ix. To determine the reporting rates of MOH 515 and MOH 705 A/B in 2022, 2023, 2024 and 2025 (first quarter) for community health extension workers and dispensaries included in the project, but also for Sub-Counties and County.]{style="color:#bdbdbd"}
-
+:::
 -------------------------------------------------------------------------------------------------------
+
 
 ::: {.callout-note collapse="true"}
 ## Disclaimer
