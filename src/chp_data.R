@@ -2,10 +2,10 @@
 # AUTHOR: DR MOSES KITI
 #######################
 
-library(dplyr)
-library(ggplot2)
-library(lubridate)
-library(tibble)
+pacman::p_load(dplyr,
+               ggplot2,
+               lubridate,
+               tibble)
 
 ## if we had wanted to rename the columns
 # varnames <- readxl::read_excel("data/WF/clean/chp_data_summary.xlsx", 

@@ -2,12 +2,12 @@
 # AUTHOR: DR MOSES KITI
 #######################
 
-library(cowplot)
-library(ggplot2)
-library(sf)
-library(ggrepel)
-library(ggspatial)
-library(dplyr)
+pacman::p_load(cowplot,
+               ggplot2,
+               sf,
+               ggrepel,
+               ggspatial,
+               dplyr)
 
 #--1. generate Kenya basemap
 

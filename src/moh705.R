@@ -1,12 +1,13 @@
 #######################
 # AUTHOR: DR MOSES KITI
 #######################
-
-library(dplyr)
-library(ggplot2)
-library(lubridate)
-library(tibble)
-library(tidyr)
+pacman::p_load(
+  dplyr,
+  ggplot2,
+  lubridate,
+  readxl,
+  tibble,
+  tidyr)
 
 source("src/functions.R")
 
