@@ -27,88 +27,6 @@ subcounty_hf <- tibble(
                    "Kadzinuni", "Kilifi", "Pingilikani", 
                    "Tunzanani", "Makanzani", "Lenga", "Malindi")) 
 
-# create functions to transform data
-# a. write functions to reshape data into correct format
-reshape_moh705 <- function(data) {
-  data |> 
-    pivot_longer(
-      cols = -c(dispensary, data, subcounty),
-      names_to = "date",
-      values_to = "count"
-    ) |> 
-    pivot_wider(
-      names_from = data,
-      values_from = count
-    ) |>
-    rename_all(tolower)  |>
-    mutate(date = as.Date(as.numeric(date), origin = "1899-12-30"),
-           month = month(date),
-           year = substr(year(date), 3, 4), # extract last 2 digits of year value
-           my = paste0(month,"-",year))
-}
-
-# b. define report month levels
-report_month <- c("9-23","10-23","11-23","12-23","1-24","2-24","3-24","4-24",
-                  "5-24","6-24","7-24","8-24","9-24","10-24","11-24","12-24",
-                  "1-25","2-25","3-25","4-25","5-25")
-
-col_case <- c("#bdbdbd", "#7570b3", "#d95f02") #  "#542788"
-
-# create function to plot graphs
-plot_malaria_cases <- function(data, title_text, file_name) {
-  plot <- ggplot(data, aes(x = my, y = count, 
-                           group = case_type, 
-                           color = case_type, 
-                           fill = case_type)) + 
-    
-    # Bar plot for suspected cases
-    geom_col(data = data %>% filter(case_type == "Suspected"), 
-             aes(fill = case_type), 
-             width = 1, alpha = 0.4) +  # Transparency to differentiate bars
-    
-    # Line plot for tested and confirmed cases
-    geom_line(data = data %>% filter(case_type != "Suspected"), 
-              aes(color = case_type), 
-              size = 1.2) + 
-    
-    # Points for tested and confirmed cases
-    geom_point(data = data %>% filter(case_type != "Suspected"), 
-               aes(color = case_type), 
-               size = 2) + 
-    
-    # Labels and theme
-    labs(title = "", # paste("Monthly", title_text, "malaria cases"),
-         x = "Month-Year of reporting",
-         y = "Number of Cases",
-         color = "Case Type",
-         fill = "Case Type") + 
-    
-    # Ensure both color and fill use the same scale
-    scale_color_manual(values = c(col_case[1], col_case[2], col_case[3])) +  
-    scale_fill_manual(values = c(col_case[1], col_case[2], col_case[3])) +  
-    
-    facet_wrap(~ dispensary, ncol = 2) +  
-    theme_minimal() +
-    
-    # Improve readability of the plot
-    theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 10),
-          axis.text.y = element_text(size = 18),
-          axis.title = element_text(size = 20),
-          title = element_text(size = 20),
-          strip.text = element_text(size = 18, face = "bold"),
-          legend.text = element_text(size = 18),
-          legend.title = element_text(size = 20, face = "bold"))
-  
-  return(plot)
-}
-
-
-# Save the figure
-save_plot <- function(plot, file_name){  
-  ggsave(plot, filename = file_name, 
-         height = 6, width = 15, dpi = 300, bg = "#FFFFFF")
-}
-
 
 #===============================================================================
 # STEP 1: UNDER 5 MALARIA SUSPECTED, TESTED, CONFIRMED
@@ -148,6 +66,7 @@ moh705A_long <- moh705A |>
 moh705A_long$case_type <- factor(moh705A_long$case_type,
                                  levels = c("suspected", "tested", "confirmed"),
                                  labels = c("Suspected", "Tested", "Confirmed"))
+
 
 # GRAPH 2: shows line trend for suspected, tested, confirmed for each dispensary
 fig2_moh705A <- plot_malaria_cases(moh705A_long, "under-5 years")
