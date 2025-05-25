@@ -59,10 +59,12 @@ plot_malaria_cases(moh705B_long %>% filter(subcounty == "Ganze"),
 ------------------------------------------------------------------------
 
 ## Malaria testing
+
 Total number of tests done and number positive by type (Microscopy and Rapid Diagnostic Testing (RDT))
 
 ::: panel-tabset
-## Microscopy blood smear <5 years
+## Microscopy blood smear \<5 years
+
 ```{r}
 #| label: mbs-u5-ganze
 #| echo: false
@@ -89,7 +91,8 @@ plot_malaria_test_type(moh706_dispensary_quarters |> filter(subcounty == "Ganze"
                        "mbs_o5", "Microscopy", "≥5 years", "dispensary")
 ```
 
-## RDT <5 years
+## RDT \<5 years
+
 ```{r}
 #| label: rdt-o5-ganze
 #| echo: false
@@ -103,6 +106,7 @@ plot_malaria_test_type(moh706_dispensary_quarters |> filter(subcounty == "Ganze"
 ```
 
 ## RDT ≥5 years
+
 ```{r}
 #| label: mrdt-o5-ganze
 #| echo: false
@@ -114,7 +118,6 @@ plot_malaria_test_type(moh706_dispensary_quarters |> filter(subcounty == "Ganze"
 plot_malaria_test_type(moh706_dispensary_quarters |> filter(subcounty == "Ganze"), 
                        "mrdt_o5", "RDT", "≥5 years", "dispensary")
 ```
-
 :::
 
 ------------------------------------------------------------------------
@@ -127,6 +130,17 @@ plot_malaria_test_type(moh706_dispensary_quarters |> filter(subcounty == "Ganze"
 ## Over 5
 
 ## Malaria in pregnancy
+
+```{r}
+#| label: mip-ganze
+#| echo: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 6
+
+# plot fig
+fig_mip_ganze 
+```
 :::
 
 ------------------------------------------------------------------------
