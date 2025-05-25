@@ -3,14 +3,15 @@ project:
   output-dir: docs
   render:
     - index.qmd
-    - summary.qmd
-    - summary_indicators.qmd
+    - executive_summary.qmd
+    - indicators_summary.qmd
     - ganze.qmd
     - kaloleni.qmd
     - kilifinorth.qmd
     - kilifisouth.qmd
     - rabai.qmd
     - qualitative.qmd
+    
   preview: 
     port: 5761
 
@@ -21,8 +22,8 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - summary.qmd
-      - summary_indicators.qmd
+      - executive_summary.qmd
+      - indicators_summary.qmd
       - ganze.qmd
       - kaloleni.qmd
       - kilifinorth.qmd
@@ -36,8 +37,8 @@ website:
     search: true
     contents:
       - index.qmd
-      - summary.qmd
-      - summary_indicators.qmd
+      - executive_summary.qmd
+      - indicators_summary.qmd
       - ganze.qmd
       - kaloleni.qmd
       - kilifinorth.qmd
