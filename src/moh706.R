@@ -10,24 +10,7 @@ pacman::p_load(dplyr,
                tidyr)
 
 source("src/functions.R")
-
-# generate names of health facilities in the sub-counties
-subcounty_hf <- tibble(
-  subcounty = c("Ganze", "Ganze", "Kaloleni", "Kaloleni",
-                "Kilifi North", "Kilifi North", "Kilifi North", 
-                "Kilifi South", "Kilifi South", "Rabai", "Rabai", "Malindi"),
-  dispensary = c("Ganze Health Centre", "Jaribuni Dispensary", # Ganze
-                 "Mgamboni Dispensary", "Kinarani Dispensary", # Kaloleni
-                 "Kiwandani Dispensary", "Kadzinuni Dispensary", 
-                 "Kilifi District Hospital",  # KN
-                 "Pingilikani Dispensary", "Tunzanani Dispensary", # KS
-                 "Makanzani Dispensary", "Lenga Dispensary", # Rabai
-                 "Malindi District Hospital"), # Malindi
-  short_f_name = c("Ganze", "Jaribuni", "Mgamboni", "Kinarani", "Kiwandani",
-                   "Kadzinuni", "Kilifi", "Pingilikani", 
-                   "Tunzanani", "Makanzani", "Lenga", "Malindi")) 
-
-# create functions to transform data
+source("src/study_health_facilities.R")
 
 # b. define report month levels
 report_month <- c("9-23","10-23","11-23","12-23","1-24","2-24","3-24","4-24",

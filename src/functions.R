@@ -1,9 +1,16 @@
-# SET GLOBAL VALUES
-map_cols <- c('#8dd3c7', '#ef8a62', '#bebada', '#d8b365', '#b3de69')
-disp_cols <- c('#8dd3c7', '#ef8a62')
+#######################
+# AUTHOR: DR MOSES KITI
+#######################
 
+
+# SET GLOBAL VALUES
+# Ganze, Kaloleni, Kilifi North, Kilifi South, Malindi, Magarini, Rabai
+map_cols <- c('#8dd3c7', '#d8b365', '#ef8a62', '#bebada', '#bdbdbd', '#bdbdbd', '#b3de69')
+disp_cols <- c('#8dd3c7', '#ef8a62')
+col_case <- c("#bdbdbd", "#7570b3", "#d95f02") #  "#542788"
 
 # create functions to transform data
+
 # a. write functions to reshape data into correct format
 reshape_moh705 <- function(data) {
   data |> 
@@ -28,9 +35,6 @@ reshape_moh705 <- function(data) {
 report_month <- c("9-23","10-23","11-23","12-23","1-24","2-24","3-24","4-24",
                   "5-24","6-24","7-24","8-24","9-24","10-24","11-24","12-24",
                   "1-25","2-25","3-25","4-25","5-25")
-
-col_case <- c("#bdbdbd", "#7570b3", "#d95f02") #  "#542788"
-
 
 # create function to plot malaria cases, overall
 plot_malaria_cases <- function(data, title_text, file_name) {
@@ -171,7 +175,7 @@ fxn_fig_net_subcounty <- function(data, x_var, x_axis_label){
              y = reorder(sub_county, !!sym(x_var)),
              fill = sub_county)) +
     
-    geom_col(fill = map_cols) +
+    geom_col(fill = map_cols[c(1:4,7)]) +
     
     geom_text(aes(label = paste0(paste0(!!sym(x_var), "%"), 
                                  " (n=", n_sensitized, ")")),  # Display proportion as percentage

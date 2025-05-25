@@ -9,6 +9,9 @@ pacman::p_load(cowplot,
                ggspatial,
                dplyr)
 
+
+source("src/study_health_facilities.R")
+
 #--1. generate Kenya basemap
 
 # ke_map <- map_data("world") %>%
@@ -20,48 +23,7 @@ ke_map <- st_read("../data/gadm41_KEN_shp/gadm41_KEN_0.shp")
 # ggplot() +
 #   geom_sf(data = ke_map, fill = "#bdbdbd", color = "#bdbdbd",  size=0)
 
-subcounty_hf <- tibble(
-  subcounty = c("Ganze", "Ganze", "Kaloleni", "Kaloleni",
-                "Kilifi North", "Kilifi North", "Kilifi North", 
-                "Kilifi South", "Kilifi South", "Rabai", "Rabai", "Malindi"),
-  dispensary = c("Ganze Health Centre", "Jaribuni Dispensary", # Ganze
-                 "Mgamboni Dispensary", "Kinarani Dispensary", # Kaloleni
-                 "Kiwandani Dispensary", "Kadzinuni Dispensary", 
-                 "Kilifi District Hospital",  # KN
-                 "Pingilikani Dispensary", "Tunzanani Dispensary", # KS
-                 "Makanzani Dispensary", "Lenga Dispensary", # Rabai
-                 "Malindi District Hospital"), # Malindi
-  short_f_name = c("Ganze", "Jaribuni", "Mgamboni", "Kinarani", "Kiwandani",
-                   "Kadzinuni", "Kilifi", "Pingilikani", 
-                   "Tunzanani", "Makanzani", "Lenga", "Malindi")) 
 
-
-## get lat-long of health facilities
-### sourced from https://springernature.figshare.com/articles/dataset/Public_health_facilities_in_sub_Saharan_Africa/7725374?backTo=/collections/A_spatial_database_of_health_facilities_managed_by_the_public_health_sector_in_sub_Saharan_Africa/4399445 
-
-# Tunzanani, Baolala, Gongoni dispensary was not in the MOH list, so we create manually
-additional_hf <- tibble(
-  county = c("Kilifi", "Kilifi", "Kilifi"),
-  dispensary = c("Tunzanani Dispensary", "Baolala Dispensary", "Gongoni Dispensary"),
-  F_Type = c("Dispensary", "Dispensary", "Health Centre"),
-  Ownership = c("MOH", "MOH", "MOH"),
-  Latitude = c(-3.891365, -3.179836, -3.037937),
-  Longitude = c(39.695260, 39.785560, 40.128563),
-  subcounty = c("Kilifi South", "Malindi", "Malindi"),
-  short_f_name = c("Tunzanani", "Baolala", "Gongoni")
-  )
-
-health_facilities <- readxl::read_excel("../data/SSA_health_facility_location_data.xlsx") %>%
-  dplyr::filter(Admin1 == "Kilifi") %>%
-  dplyr::rename(county = "Admin1",
-                dispensary = "Facility name",
-                F_Type = "Facility type",
-                Latitude = Lat,
-                Longitude = Long) %>%
-  dplyr::filter(dispensary %in% subcounty_hf$dispensary) %>%
-  dplyr::select(-c("LL source", "Country")) %>%
-  left_join(subcounty_hf, by = "dispensary") %>%
-  rbind(additional_hf)
 
 
 #-- 3. generate map of study sub-counties
@@ -84,7 +46,8 @@ kilifi <- ggplot() +
 kilifi_crop <- st_crop(ke_map, xmin = 39, xmax = 40.3,
                        ymin = -4, ymax = -2.25)
 
-map_cols <- c('#8dd3c7', '#d8b365', '#ef8a62', '#bebada', '#bdbdbd', '#bdbdbd', '#b3de69')
+# # Ganze, Kaloleni, Kilifi North, Kilifi South, Malindi, Magarini, Rabai
+# map_cols <- c('#8dd3c7', '#d8b365', '#ef8a62', '#bebada', '#bdbdbd', '#bdbdbd', '#b3de69')
 
 # Magarini and Malindi mapped as gray
 
@@ -112,14 +75,14 @@ kilifi_crop_plt <- ggplot() +
   annotation_north_arrow(location = "br", which_north = "true", 
                          pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), size=0.02) +
   theme_bw()
-kilifi_crop_plt
+# kilifi_crop_plt
 
 # combine the maps with Kenya inset
 fig1_study_locations <- ggdraw(kilifi_crop_plt) +
   draw_plot({kilifi},
             x=0.13, y=0.635,
             width = 0.3, height = 0.3)
-fig1_study_locations
+# fig1_study_locations
 
 ggsave("images/fig1_study_locations.png", plot = fig1_study_locations, bg = "transparent")
 
@@ -128,7 +91,7 @@ ggsave("images/fig1_study_locations.png", plot = fig1_study_locations, bg = "tra
 # generate maps of subcounties and hfs
 plot_kilifi_subcounty_map <- function(kilifi_crop, kilifi_subcounty, 
                                       health_facilities, subcounty_name, 
-                                      map_cols) {
+                                      map_cols){
   
   # Ensure the input subcounty dataset is an sf object
   if (!inherits(kilifi_subcounty, "sf")) {
@@ -147,9 +110,10 @@ plot_kilifi_subcounty_map <- function(kilifi_crop, kilifi_subcounty,
   # Filter health facilities within the selected subcounty boundary
 
   health_facilities_filtered <- health_facilities %>%
-    filter(subcounty == subcounty_name)
-    # st_as_sf(coords = c("Longitude", "Latitude"), crs = st_crs(kilifi_subcounty)) %>%
-    # st_intersection(subcounty_data)
+    filter(subcounty == subcounty_name) %>%
+    # Format coordinates to 1 decimal place
+    mutate(Longitude = round(Longitude, 1),
+           Latitude = round(Latitude, 1))
   
   # Plot the filtered map
   subcounty_plot <- ggplot() +
@@ -158,19 +122,28 @@ plot_kilifi_subcounty_map <- function(kilifi_crop, kilifi_subcounty,
     geom_point(data = health_facilities_filtered, 
                aes(x = Longitude, y = Latitude), 
                color = "red", shape = "+", size = 6, font = "bold") +
+    
     ggrepel::geom_text_repel(data = health_facilities_filtered, 
                              aes(x = Longitude, y = Latitude, label = short_f_name), 
-                             size = 4, font = "bold",
+                             size = 5, font = "bold",
                              box.padding = unit(0.2, "lines")) +
     coord_sf(expand = FALSE) +
     # annotation_scale(location = "bl", width_hint = 0.2) +
     # annotation_north_arrow(location = "br", which_north = "true", 
     #                        pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), size = 0.03) +
     theme_bw() +
-    labs(title = paste("Health Facilities in", subcounty_name, "Subcounty"),
-         subtitle = "Kilifi County",
+    labs(
+      # title = paste("Health Facilities in", subcounty_name, "Subcounty"),
+         # subtitle = "Kilifi County",
          x = "Longitude",
-         y = "Latitude")
+         y = "Latitude") +
+    theme(axis.text.x = element_text(hjust = 1, size=15),
+          axis.text.y = element_text(size = 15),
+          axis.title = element_text(size = 20),
+          # title = element_text(size=25)
+          ) +
+    scale_x_continuous(labels = function(x) sprintf("%.1f", x)) +  # 1 decimal for x
+    scale_y_continuous(labels = function(y) sprintf("%.1f", y))   # 1 decimal for y
   
   return(subcounty_plot)
 }
@@ -185,7 +158,7 @@ kn_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_facilit
                                       "Kilifi North", map_cols[3])
 
 ks_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_facilities,
-                                   "Kilifi South", map_cols[6])
+                                   "Kilifi South", map_cols[4])
 
 rabai_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_facilities,
                                    "Rabai", map_cols[7])

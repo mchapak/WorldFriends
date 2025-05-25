@@ -10,23 +10,7 @@ pacman::p_load(
   tidyr)
 
 source("src/functions.R")
-
-# generate names of health facilities in the sub-counties
-subcounty_hf <- tibble(
-  subcounty = c("Ganze", "Ganze", "Kaloleni", "Kaloleni",
-                "Kilifi North", "Kilifi North", "Kilifi North", 
-                "Kilifi South", "Kilifi South", "Rabai", "Rabai", "Malindi"),
-  dispensary = c("Ganze Health Centre", "Jaribuni Dispensary", # Ganze
-                 "Mgamboni Dispensary", "Kinarani Dispensary", # Kaloleni
-                 "Kiwandani Dispensary", "Kadzinuni Dispensary", 
-                 "Kilifi District Hospital",  # KN
-                 "Pingilikani Dispensary", "Tunzanani Dispensary", # KS
-                 "Makanzani Dispensary", "Lenga Dispensary", # Rabai
-                 "Malindi District Hospital"), # Malindi
-  short_f_name = c("Ganze", "Jaribuni", "Mgamboni", "Kinarani", "Kiwandani",
-                   "Kadzinuni", "Kilifi", "Pingilikani", 
-                   "Tunzanani", "Makanzani", "Lenga", "Malindi")) 
-
+source("src/study_health_facilities.R")
 
 #===============================================================================
 # STEP 1: UNDER 5 MALARIA SUSPECTED, TESTED, CONFIRMED
@@ -83,6 +67,18 @@ total_moh705A <- moh705A_long %>%
 fig3_moh705A <- plot_total_malaria_cases(total_moh705A, "under-5")                             
 
 
+# Total number of suspected, tested, confirmed over entire duration
+moh705A_subcounty <- moh705A %>%
+  group_by(dispensary) %>%
+  summarise(total_suspected = sum(suspected, na.rm = TRUE),
+            total_tested = sum(tested, na.rm = TRUE),
+            total_confirmed = sum(confirmed, na.rm = TRUE)) %>%
+  left_join(health_facilities 
+            %>% select(-c(dispensary)) %>% rename(dispensary=short_f_name), 
+            by= "dispensary") %>%
+  select(subcounty, dispensary, total_suspected, total_tested, total_confirmed,
+         Longitude, Latitude)
+
 #===============================================================================
 # STEP 2: OVER 5 MALARIA SUSPECTED, TESTED, CONFIRMED
 #===============================================================================
@@ -130,6 +126,18 @@ total_moh705B <- moh705B_long %>%
 fig5_moh705B <- plot_total_malaria_cases(total_moh705B, "over-5")
 # fig5_moh705B
 
+
+moh705B_subcounty <- moh705B %>%
+  group_by(dispensary) %>%
+  summarise(total_suspected = sum(suspected, na.rm = TRUE),
+            total_tested = sum(tested, na.rm = TRUE),
+            total_confirmed = sum(confirmed, na.rm = TRUE)) %>%
+  left_join(health_facilities %>% 
+              select(-c(dispensary)) %>% 
+              rename(dispensary=short_f_name), 
+            by= "dispensary") %>%
+  select(subcounty, dispensary, total_suspected, total_tested, total_confirmed,
+         Longitude, Latitude)
 #===============================================================================
 # STEP 3: MALARIA IN PREGNANCY
 #===============================================================================
@@ -137,16 +145,22 @@ fig5_moh705B <- plot_total_malaria_cases(total_moh705B, "over-5")
 moh705B_mip <- moh705B %>%
   select(dispensary, subcounty, date, mip, month, year, my)
 
-fig6_moh705B <- ggplot(moh705B_mip, aes(x = my, y = mip)) +
+# total number of malaria in pregnancy cases detected
+total_mip <- moh705B %>%
+  group_by(my) %>%
+  summarise(total_mip = sum(mip, na.rm = TRUE)) %>%
+  ungroup()
+
+fig6_moh705B_mip <- ggplot(moh705B_mip, aes(x = my, y = mip)) +
   # Bar plot for mip
   geom_col() +
-  facet_wrap(~ subcounty, ncol = 1) +  
+  scale_fill_manual(values = map_cols[c(1)]) +
   theme_minimal() +
-
-    # Labels and theme
+  
+  # Labels and theme
   labs(title = "", # paste("Monthly", title_text, "malaria cases"),
        x = "Month-Year of reporting",
-       y = "Malaria in pregnancy") + 
+       y = "Number of cases") + 
   
   # Improve readability of the plot
   theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 16),
@@ -154,6 +168,61 @@ fig6_moh705B <- ggplot(moh705B_mip, aes(x = my, y = mip)) +
         axis.title = element_text(size = 25),
         title = element_text(size = 20),
         strip.text = element_text(size = 18, face = "bold"),
-        legend.text = element_text(size = 18),
-        legend.title = element_text(size = 20, face = "bold"))
+        legend.position = "none",
+        # legend.text = element_text(size = 18),
+        # legend.title = element_text(size = 20, face = "bold"),
+        panel.spacing = unit(0.5, "lines"),
+        panel.grid.major.x = element_blank())
+
+
+
+# function to plot mip by subcounty
+fxn_moh705B_mip <- function(data, subcounty_name, subcounty_color){
+  # filter subcounty
+  subcounty_data <- data %>% filter(subcounty == subcounty_name)
+  
+  # plot for subcounty
+  p <- ggplot(subcounty_data, aes(x = my, y = mip, fill = subcounty_name)) +
+    # Bar plot for mip
+    geom_col() +
+    scale_fill_manual(values = subcounty_color) +
+    
+    # Set y-axis limits
+    scale_y_continuous(
+      limits = c(0, 10),  # Fixed range from 0 to 10
+      breaks = seq(0, 10, by = 2),  # Whole numbers from 0 to 10
+      expand = c(0, 0)  # No padding beyond limits
+    ) +
+    
+    # facet_wrap(~ subcounty, ncol = 1) +  
+    theme_minimal() +
+    
+    # Labels and theme
+    labs(title = "", # paste("Monthly", title_text, "malaria cases"),
+         x = "Month-Year of reporting",
+         y = "Number of cases") + 
+    
+    # Improve readability of the plot
+    theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 16),
+          axis.text.y = element_text(size = 18),
+          axis.title = element_text(size = 25),
+          title = element_text(size = 20),
+          strip.text = element_text(size = 18, face = "bold"),
+          legend.position = "none",
+          # legend.text = element_text(size = 18),
+          # legend.title = element_text(size = 20, face = "bold"),
+          panel.spacing = unit(0.5, "lines"),
+          panel.grid.major.x = element_blank())
+  
+  return (p)
+}
+
+# mip by county
+# map_cols <- c('#8dd3c7', '#d8b365', '#ef8a62', '#bebada', '#bdbdbd', '#bdbdbd', '#b3de69')
+
+fig_mip_ganze <- fxn_moh705B_mip(moh705B_mip, "Ganze", "#8dd3c7")
+fig_mip_kaloleni <- fxn_moh705B_mip(moh705B_mip, "Kaloleni", "#d8b365")
+fig_mip_kn <- fxn_moh705B_mip(moh705B_mip, "Kilifi North", "#ef8a62")
+fig_mip_ks <- fxn_moh705B_mip(moh705B_mip, "Kilifi South", "#bebada")
+fig_mip_rabai <- fxn_moh705B_mip(moh705B_mip, "Rabai", "#b3de69")
 
