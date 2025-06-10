@@ -127,7 +127,3 @@ moh706_dispensary_quarters <- moh706 |>
 # fig_mbs_o5_dispensary <- plot_malaria_test_type(moh706_dispensary_quarters, "mbs_o5", "Microscopy", "≥5 years", "dispensary")
 # fig_mrdt_u5_dispensary <- plot_malaria_test_type(moh706_dispensary_quarters, "mbs_u5", "RDT", "<5 years", "dispensary")
 # fig_mrdt_o5_dispensary <- plot_malaria_test_type(moh706_dispensary_quarters, "mbs_o5", "RDT", "≥5 years", "dispensary")
-
-
-
-
