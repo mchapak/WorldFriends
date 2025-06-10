@@ -2,3 +2,4 @@
 title: "Analysis notes"
 ---
 
+1. The number of suspected, tested and positive malaria by RDT reported by the CHEWs (MOH515 summary) is not consistent with the numbers reported in MOH706.
