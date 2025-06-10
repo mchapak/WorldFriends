@@ -1,0 +1,17 @@
+{
+  "hash": "bb21936c09fbcc55b0adf20ba20454ed",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Overview of indicators\"\n---\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n\n```\n\nThe downloaded binary packages are in\n\t/var/folders/8q/cchbjfdj0bg6qfyjz7dgn_900000gn/T//Rtmp7J5mVk/downloaded_packages\n```\n\n\n:::\n:::\n\n\n\n\n\n\n\n\n## Reporting rates\n\n::: panel-tabset\n## MOH 515\n\n## MOH 705A\n\n## MOH 705B\n:::\n\n------------------------------------------------------------------------\n\n## Malaria trends\n\n::: panel-tabset\n## Under 5\n\nTotal number of [**suspected**]{style=\"color:#bdbdbd\"}, [**tested**]{style=\"color:#7570b3\"}, and [**confirmed**]{style=\"color:#d95f02\"} malaria cases by sub-county.\n\n\n\n\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](summary_indicators_files/figure-html/generate-indicators-u5-1.png){width=1152}\n:::\n:::\n\n\n\n\n\n\n\n\n## Over 5\n\nTotal number of [**suspected**]{style=\"color:#bdbdbd\"}, [**tested**]{style=\"color:#7570b3\"}, and [**confirmed**]{style=\"color:#d95f02\"} malaria cases by sub-county.\n\n\n\n\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](summary_indicators_files/figure-html/generate-indicators-o5-1.png){width=1152}\n:::\n:::\n\n\n\n\n\n\n\n:::\n\n------------------------------------------------------------------------\n\n## Malaria testing\nTotal number of tests done and number positive by type (Microscopy and Rapid Diagnostic Testing (RDT))\n\n::: panel-tabset\n## Microscopy blood smear <5 years\n\n\n\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](summary_indicators_files/figure-html/mbs-u5-subcounty-1.png){width=1152}\n:::\n:::\n\n\n\n\n\n\n\n\n## Microscopy blood smear ≥5 years\n\n\n\n\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](summary_indicators_files/figure-html/mbs-o5-subcounty-1.png){width=1152}\n:::\n:::\n\n\n\n\n\n\n\n\n## RDT <5 years\n\n\n\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](summary_indicators_files/figure-html/rdt-o5-subcounty-1.png){width=1152}\n:::\n:::\n\n\n\n\n\n\n\n\n## RDT ≥5 years\n\n\n\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](summary_indicators_files/figure-html/mrdt-o5-subcounty-1.png){width=1152}\n:::\n:::\n\n\n\n\n\n\n\n\n:::\n\n------------------------------------------------------------------------\n\n## Malaria in pregnancy\n\n\n\n\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](summary_indicators_files/figure-html/mip-1.png){width=1152}\n:::\n:::\n\n\n\n\n\n\n\n\n------------------------------------------------------------------------\n\n## Bednet ownership and usage\n\n::: panel-tabset\n## Net ownership\n\nProportion of people who owned a net over the study period.\n\n\n\n\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](summary_indicators_files/figure-html/generate-indicators-net-ownership-1.png){width=1152}\n:::\n:::\n\n\n\n\n\n\n\n\n## Net usage\n\nProportion of people who slept under a net the previous night over the study period.\n\n\n\n\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](summary_indicators_files/figure-html/generate-indicators-net-usage-1.png){width=1152}\n:::\n:::\n\n\n\n\n\n\n\n:::\n",
+    "supporting": [
+      "summary_indicators_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
