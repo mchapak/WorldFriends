@@ -35,6 +35,9 @@ The map below shows the location of the 10 health facilities within the 5 sub-co
 # plot
 source("src/maps.R")
 
+# leaflet_map
+
 # shows all hfs
 fig1_study_locations
+
 ```

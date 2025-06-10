@@ -125,7 +125,7 @@ fig_mbs_u5_subcounty
 fig_mbs_o5_subcounty
 ```
 
-## RDT <5 years
+## RDT \<5 years
 
 ```{r}
 #| label: rdt-o5-subcounty
@@ -200,5 +200,6 @@ Proportion of people who slept under a net the previous night over the study per
 #| fig-height: 6
 
 fig_use_net_subcounty
+
 ```
 :::

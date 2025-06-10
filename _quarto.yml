@@ -11,7 +11,7 @@ project:
     - kilifisouth.qmd
     - rabai.qmd
     - qualitative.qmd
-    - src/notes.qmd
+    - notes.qmd
     
   preview: 
     port: 5761
@@ -31,6 +31,7 @@ website:
       - kilifisouth.qmd
       - rabai.qmd
       - qualitative.qmd
+      - notes.qmd
     logo: images/logos/WorldFriends.png
     
   sidebar:
@@ -46,6 +47,8 @@ website:
       - kilifisouth.qmd
       - rabai.qmd
       - qualitative.qmd
+      - notes.qmd
+      
 
 format:
   html:
