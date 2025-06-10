@@ -19,6 +19,7 @@ source("src/chp_data.R")
 
 ::: panel-tabset
 ## MOH 515
+
 ```{r}
 #| label: moh-515-report
 #| echo: false
@@ -31,6 +32,7 @@ fig_moh515_report
 ```
 
 ## MOH 705A
+
 ```{r}
 #| label: moh-705a-report
 #| echo: false
@@ -42,6 +44,7 @@ fig_moh705A_report
 ```
 
 ## MOH 705B
+
 ```{r}
 #| label: moh-705b-report
 #| echo: false
@@ -122,7 +125,7 @@ fig_mbs_u5_subcounty
 fig_mbs_o5_subcounty
 ```
 
-## RDT \<5 years
+## RDT <5 years
 
 ```{r}
 #| label: rdt-o5-subcounty
