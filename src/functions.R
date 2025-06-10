@@ -179,7 +179,7 @@ fxn_fig_net_subcounty <- function(data, x_var, x_axis_label){
     
     geom_text(aes(label = paste0(paste0(!!sym(x_var), "%"), 
                                  " (n=", n_sensitized, ")")),  # Display proportion as percentage
-              hjust = -0.1, size = 7, color = "black", fontface = "bold") +  # Adjust text position
+              hjust = 1.1, size = 5, color = "black", fontface = "bold") +  # Adjust text position
     
     labs(#title = "Proportion of people with nets\n out of those sensitized",
       x = x_axis_label,
@@ -205,7 +205,7 @@ fxn_fig_net_dispensary <- function(data, subcounty, x_var, x_axis_label){
     
     geom_text(aes(label = paste0(paste0(!!sym(x_var), "%"), 
                                  " (n=", n_sensitized, ")")),  # Display proportion as percentage
-              hjust = -0.1, size = 7, color = "black", fontface = "bold") +  # Adjust text position
+              hjust = 1.1, size = 5, color = "black", fontface = "bold") +  # Adjust text position
     
     labs(#title = "Proportion of people with nets\n out of those sensitized",
       x = x_axis_label,
