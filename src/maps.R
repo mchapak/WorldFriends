@@ -4,6 +4,7 @@
 
 pacman::p_load(cowplot,
                ggplot2,
+               leaflet,
                sf,
                ggrepel,
                ggspatial,
@@ -19,18 +20,16 @@ source("src/study_health_facilities.R")
 #   dplyr::filter(region %in% c("Kenya")) %>%
 #   dplyr::mutate(color = factor(region, levels = c("Kenya")))
 
-ke_map <- st_read("../data/gadm41_KEN_shp/gadm41_KEN_0.shp")
+ke_map <- st_read("../data/gadm41_KEN_shp/gadm41_KEN_0.shp") %>% st_transform(4326)
 # ggplot() +
 #   geom_sf(data = ke_map, fill = "#bdbdbd", color = "#bdbdbd",  size=0)
-
-
 
 
 #-- 3. generate map of study sub-counties
 kilifi_subcounty_list <- c("Ganze", "Kaloleni", "Kilifi North", "Kilifi South",
                  "Rabai", "Malindi", "Magarini") 
 kilifi_subcounty <- st_read("../data/gadm41_KEN_shp/gadm41_KEN_2.shp") %>%
-  dplyr::filter(NAME_2 %in% c(kilifi_subcounty_list))
+  dplyr::filter(NAME_2 %in% c(kilifi_subcounty_list)) %>% st_transform(4326)
 
 
 kilifi <- ggplot() +
@@ -169,4 +168,98 @@ rabai_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_faci
 # malindi_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_facilities,
 #                                    "Malindi", map_cols[6])
 
+
+
+
+# # Alternative code to generate leaflet interactive map
+# pal <- colorFactor(map_cols, domain = kilifi_subcounty$NAME_2)
+# 
+# # 3. Create base Leaflet map
+# leaflet_map <- leaflet() %>%
+#   addProviderTiles(providers$CartoDB.Positron) %>%
+#   addPolygons(
+#     data = ke_map,
+#     fillColor = "white",
+#     color = "#bdbdbd",
+#     weight = 2,
+#     fillOpacity = 0.6
+#   ) %>%
+#   addPolygons(
+#     data = kilifi_subcounty,
+#     fillColor = ~pal(NAME_2),
+#     color = "black",
+#     weight = 1,
+#     fillOpacity = 0.8,
+#     label = ~NAME_2,
+#     highlightOptions = highlightOptions(
+#       weight = 3,
+#       color = "#666",
+#       bringToFront = TRUE
+#     ),
+#     group = "Subcounties"
+#   ) %>%
+#   addLegend(
+#     position = "bottomright",
+#     pal = pal,
+#     values = kilifi_subcounty$NAME_2,
+#     title = "Kilifi Subcounties"
+#   ) %>%
+#   addScaleBar(position = "bottomleft") %>%
+#   addMiniMap(toggleDisplay = TRUE)
+# 
+# # 4. Add health facilities if available
+# if(exists("health_facilities")) {
+#   leaflet_map <- leaflet_map %>%
+#     addMarkers(
+#       data = health_facilities,
+#       lng = ~Longitude,
+#       lat = ~Latitude,
+#       label = ~short_f_name,
+#       icon = makeIcon(
+#         iconUrl = "https://cdn-icons-png.flaticon.com/512/684/684908.png",
+#         iconWidth = 20,
+#         iconHeight = 20
+#       ),
+#       group = "Health Facilities"
+#     ) %>%
+#     addLayersControl(
+#       overlayGroups = c("Subcounties", "Health Facilities"),
+#       options = layersControlOptions(collapsed = FALSE)
+#     )
+# }
+# 
+# # 5. Create function for subcounty-specific maps
+# plot_kilifi_subcounty_leaflet <- function(subcounty_name) {
+#   subcounty_data <- kilifi_subcounty %>% filter(NAME_2 == subcounty_name)
+#   
+#   leaflet() %>%
+#     addProviderTiles(providers$CartoDB.Positron) %>%
+#     addPolygons(
+#       data = subcounty_data,
+#       fillColor = ~pal(NAME_2),
+#       color = "black",
+#       weight = 2,
+#       fillOpacity = 0.8,
+#       label = subcounty_name
+#     ) %>%
+#     addMarkers(
+#       data = health_facilities %>% filter(subcounty == subcounty_name),
+#       lng = ~Longitude,
+#       lat = ~Latitude,
+#       label = ~short_f_name,
+#       clusterOptions = markerClusterOptions()
+#     ) %>%
+#     addScaleBar(position = "bottomleft") %>%
+#     setView(
+#       lng = mean(st_bbox(subcounty_data)[c(1,3)]),
+#       lat = mean(st_bbox(subcounty_data)[c(2,4)]),
+#       zoom = 10
+#     )
+# }
+# 
+# # 6. Save the main map
+# htmlwidgets::saveWidget(leaflet_map, "kilifi_interactive_map.html")
+# 
+# # 7. Example usage for subcounty maps
+# kaloleni_leaflet <- plot_kilifi_subcounty_leaflet("Kaloleni")
 
