@@ -60,9 +60,9 @@ vi. To calculate the percentage of population who have access to a ITN (insectic
 
 [vii. To determine percentage of malaria positive cases treated (over 5 and under 5) in 2022, 2023, 2024 and 2025 (first quarter) for communities, dispensaries, Sub-counties and County.]{style="color:#bdbdbd"}
 
-[viii. To quantify the number of intermittent preventive treatment of malaria during pregnancy delivered in 2022, 2023, 2024 and 2025 (first quarter) dispensaries (CHU), Sub-counties and County.]{style="color:#bdbdbd"}
+viii. To quantify the number of intermittent preventive treatment of malaria during pregnancy delivered in 2022, 2023, 2024 and 2025 (first quarter) dispensaries (CHU), Sub-counties and County.
 
-[ix. To determine the reporting rates of MOH 515 and MOH 705 A/B in 2022, 2023, 2024 and 2025 (first quarter) for community health extension workers and dispensaries included in the project, but also for Sub-Counties and County.]{style="color:#bdbdbd"}
+ix. To determine the reporting rates of MOH 515 and MOH 705 A/B in 2022, 2023, 2024 and 2025 (first quarter) for community health extension workers and dispensaries included in the project, but also for Sub-Counties and County.
 :::
 
 ------------------------------------------------------------------------
