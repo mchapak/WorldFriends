@@ -13,7 +13,7 @@ title: "Executive summary"
 pacman::p_load(cowplot, ggmap, ggplot2, ggspatial, grid, 
                knitr, leaflet, mapdata, maps, reticulate, sf, tibble,
                tidyr)
-options(knitr.table.format = "html") 
+options(knitr.table.format = "html")
 ```
 
 The Net - Community Based Malaria Programme was implemented in Kilifi County, Kenya from 2023 to 2025 to address low ITN usage, IPTp adherence, and malaria-related challenges. The program aimed to strengthen community-based malaria eradication mechanisms by 2024 through awareness campaigns, capacity building, and data collection improvements.

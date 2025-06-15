@@ -63,7 +63,7 @@ plot_malaria_cases(moh705B_long %>% filter(subcounty == "Ganze"),
 Total number of tests done and number positive by type (Microscopy and Rapid Diagnostic Testing (RDT))
 
 ::: panel-tabset
-## Microscopy blood smear <5 years
+## Microscopy blood smear \<5 years
 
 ```{r}
 #| label: mbs-u5-ganze
@@ -91,7 +91,7 @@ plot_malaria_test_type(moh706_dispensary_quarters |> filter(subcounty == "Ganze"
                        "mbs_o5", "Microscopy", "≥5 years", "dispensary")
 ```
 
-## RDT <5 years
+## RDT \<5 years
 
 ```{r}
 #| label: rdt-o5-ganze
