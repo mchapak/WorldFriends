@@ -8,6 +8,8 @@
 map_cols <- c('#8dd3c7', '#d8b365', '#ef8a62', '#bebada', '#bdbdbd', '#bdbdbd', '#b3de69')
 disp_cols <- c('#8dd3c7', '#ef8a62')
 col_case <- c("#bdbdbd", "#7570b3", "#d95f02") #  "#542788"
+bg_col <- "white"
+text_hil <- "grey30"
 
 # create functions to transform data
 
@@ -61,7 +63,7 @@ plot_malaria_cases <- function(data, title_text, file_name) {
     # Labels and theme
     labs(title = "", # paste("Monthly", title_text, "malaria cases"),
          x = "Month-Year of reporting",
-         y = "Number of Cases",
+         y = "Malaria",
          color = "Case Type",
          fill = "Case Type") + 
     
@@ -118,7 +120,7 @@ plot_total_malaria_cases <- function(data, title_text, file_name) {
     # Labels and theme
     labs(title = "", # paste("Monthly", title_text, "malaria cases"),
          x = "Month-Year of reporting",
-         y = "Number of Cases",
+         y = "Malaria",
          color = "Case Type",
          fill = "Case Type") + 
     
@@ -171,27 +173,29 @@ plot_total_malaria_cases <- function(data, title_text, file_name) {
 # GRAPH: OVERALL NET USAGE AT THE SUBCOUNTY LEVEL
 fxn_fig_net_subcounty <- function(data, x_var, x_axis_label){
   ggplot(data, 
-         aes(x = !!sym(x_var), # use the variable whose name is stored inside x_var
-             y = reorder(sub_county, !!sym(x_var)),
-             fill = sub_county)) +
+         aes(x = !!sym(x_var), 
+             y = reorder(sub_county, !!sym(x_var)))) +  # Removed fill from aes()
     
-    geom_col(fill = map_cols[c(1:4,7)]) +
+    # Use fill scale manually
+    geom_col(fill = map_cols[c(1:4,7)]) +  # Fill applied here, not in aes()
     
-    geom_text(aes(label = paste0(
-      # paste0(!!sym(x_var), "%"), 
-      "n = ", n_sensitized)),  # Display proportion as percentage
-      hjust = 1.1, size = 7, color = "black", fontface = "bold") +  # Adjust text position
+    # Text labels 
+    geom_text(aes(label = paste0(!!sym(x_var), "%")),
+              hjust = 1.1, 
+              size = 7, 
+              color = "white",  # This will now be applied correctly
+              fontface = "bold") +
     
-    labs(#title = "Proportion of people with nets\n out of those sensitized",
-      x = x_axis_label,
-      y = "Sub-County") +
+    labs(x = x_axis_label,
+         y = "Sub-County") +
     
-    scale_x_continuous(labels = function(x) paste0(x, "%"), limits = c(0, 100)) +
+    scale_x_continuous(labels = function(x) paste0(x, "%"), 
+                       limits = c(0, 100)) +
     
     theme_minimal() +
-    
     theme(axis.text = element_text(size = 16),
-          axis.title = element_text(size = 25, face = "bold"))
+          axis.title = element_text(size = 25, face = "bold"),
+          legend.position = "none")
 }
 
 
@@ -199,15 +203,16 @@ fxn_fig_net_subcounty <- function(data, x_var, x_axis_label){
 fxn_fig_net_dispensary <- function(data, subcounty, x_var, x_axis_label){
   ggplot(data %>% filter(sub_county == subcounty), 
          aes(x = !!sym(x_var), # use the variable whose name is stored inside x_var
-             y = reorder(dispensary, !!sym(x_var)),
-             fill = dispensary)) +
+             y = reorder(dispensary, !!sym(x_var)))) +
     
     geom_col(fill = map_cols[1:2]) +
     
-    geom_text(aes(label = paste0(
-      # paste0(!!sym(x_var), "%"), 
-      "n = ", n_sensitized)),  # Display proportion as percentage
-      hjust = 1.1, size = 7, color = "black", fontface = "bold") +  # Adjust text position
+    # Text labels 
+    geom_text(aes(label = paste0(!!sym(x_var), "%")),
+              hjust = 1.1, 
+              size = 7, 
+              color = "white",  # This will now be applied correctly
+              fontface = "bold") +
     
     labs(#title = "Proportion of people with nets\n out of those sensitized",
       x = x_axis_label,
@@ -218,7 +223,8 @@ fxn_fig_net_dispensary <- function(data, subcounty, x_var, x_axis_label){
     theme_minimal() +
     
     theme(axis.text = element_text(size = 16),
-          axis.title = element_text(size = 25, face = "bold"))
+          axis.title = element_text(size = 25, face = "bold"),
+          legend.position = "none")
 } 
 
 

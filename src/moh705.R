@@ -67,6 +67,11 @@ total_moh705A <- moh705A_long %>%
 fig3_moh705A <- plot_total_malaria_cases(total_moh705A, "under-5")                             
 
 
+total2_moh705A <- moh705A_long %>%
+  group_by(dispensary,case_type) %>%
+  summarise(total = sum(count, na.rm = TRUE)) %>%
+  ungroup()
+
 # Total number of suspected, tested, confirmed over entire duration
 moh705A_subcounty <- moh705A %>%
   group_by(dispensary) %>%
@@ -138,6 +143,7 @@ moh705B_subcounty <- moh705B %>%
             by= "dispensary") %>%
   select(subcounty, dispensary, total_suspected, total_tested, total_confirmed,
          Longitude, Latitude)
+
 #===============================================================================
 # STEP 3: MALARIA IN PREGNANCY
 #===============================================================================

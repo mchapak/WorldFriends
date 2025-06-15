@@ -62,28 +62,43 @@ kilifi_crop_plt <- ggplot() +
   geom_point(data = health_facilities, 
              aes(x = Longitude, y = Latitude), 
              color = "red", shape = "+", size = 6, font="bold") +
+  theme_bw() +
   ggrepel::geom_text_repel(data = health_facilities, 
                            aes(x = Longitude, y = Latitude, 
                                label = short_f_name), 
                            size = 4, font = "bold",
                            box.padding = unit(0.2, "lines")) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, size=25),
-        axis.text.y = element_text(size = 25),
-        axis.title = element_text(size = 30),
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, size=18),
+        axis.text.y = element_text(size = 18),
+        axis.title = element_text(size = 25),
         title = element_text(size=25)) +
   coord_sf(expand = FALSE) +
-  annotation_scale(location = "bl", width_hint = 0.2) +
-  annotation_north_arrow(location = "br", which_north = "true", 
-                         pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), size=0.02) +
-  theme_bw()
+  # ggspatial::annotation_north_arrow(
+  #   location = "tr",
+  #   style = north_arrow_orienteering(
+  #     line_width = 0.5,
+  #     line_col = text_hil,
+  #     fill = c(bg_col, text_hil),
+  #     text_family = "body_font",
+  #     text_col = text_hil,
+  #     text_size = 15)) +
+  # ggspatial::annotation_scale(
+  #   location = "bl",
+  #   text_family = "body_font",
+  #   text_col = text_hil,
+  #   bar_cols = c(bg_col, text_hil),
+  #   text_cex = 1)
+  annotation_scale(location = "br", width_hint = 0.2) +
+  annotation_north_arrow(location = "tr", which_north = "true",
+                         pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), size=0.02)
 # kilifi_crop_plt
 
 # combine the maps with Kenya inset
 fig1_study_locations <- ggdraw(kilifi_crop_plt) +
   draw_plot({kilifi},
-            x=0.13, y=0.635,
+            x=0.21, y=0.648,
             width = 0.3, height = 0.3)
-# fig1_study_locations
+fig1_study_locations
 
 ggsave("images/fig1_study_locations.png", plot = fig1_study_locations, bg = "transparent")
 
@@ -144,25 +159,47 @@ plot_kilifi_subcounty_map <- function(kilifi_crop, kilifi_subcounty,
           # title = element_text(size=25)
           ) +
     scale_x_continuous(labels = function(x) sprintf("%.1f", x)) +  # 1 decimal for x
-    scale_y_continuous(labels = function(y) sprintf("%.1f", y))   # 1 decimal for y
+    scale_y_continuous(labels = function(y) sprintf("%.1f", y))  # 1 decimal for y
+    # annotation_north_arrow(location = "tr", which_north = "true",
+    #                        pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), size=0.01) +
+    # annotation_scale(location = "br", width_hint = 0.1)
   
   return(subcounty_plot)
 }
 
 ganze_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_facilities,
-                          "Ganze", map_cols[1])
+                          "Ganze", map_cols[1]) +
+  annotation_north_arrow(location = "tl", which_north = "true",
+                         pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), size=0.01) +
+  annotation_scale(location = "bl", width_hint = 0.2)
+
 
 kaloleni_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_facilities,
-                                      "Kaloleni", map_cols[2])
+                                      "Kaloleni", map_cols[2])  +
+  annotation_north_arrow(location = "br", which_north = "true",
+                         pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), size=0.01) +
+  annotation_scale(location = "bl", width_hint = 0.2)
+
 
 kn_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_facilities,
-                                      "Kilifi North", map_cols[3])
+                                      "Kilifi North", map_cols[3])  +
+  annotation_north_arrow(location = "tl", which_north = "true",
+                         pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), size=0.01) +
+  annotation_scale(location = "br", width_hint = 0.2)
+
 
 ks_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_facilities,
-                                   "Kilifi South", map_cols[4])
+                                   "Kilifi South", map_cols[4])  +
+  annotation_north_arrow(location = "tr", which_north = "true",
+                         pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), size=0.01) +
+  annotation_scale(location = "br", width_hint = 0.2)
+
 
 rabai_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_facilities,
-                                   "Rabai", map_cols[7])
+                                   "Rabai", map_cols[7])  +
+  annotation_north_arrow(location = "tl", which_north = "true",
+                         pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), size=0.01) +
+  annotation_scale(location = "br", width_hint = 0.2)
 
 # magarini_hf <- plot_kilifi_subcounty_map(kilifi_crop, kilifi_subcounty, health_facilities,
 #                                    "Magarini", map_cols[5])
