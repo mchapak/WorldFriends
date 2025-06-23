@@ -51,6 +51,61 @@ moh705A_long$case_type <- factor(moh705A_long$case_type,
                                  levels = c("suspected", "tested", "confirmed"),
                                  labels = c("Suspected", "Tested", "Confirmed"))
 
+# because data for 2023 run from 9-12, we can check the impact during the same
+# period in 2024
+time_filter <- c("9-23", "10-23", "11-23", "12-23", 
+                 "9-24", "10-24", "11-24", "12-24")
+moh705A_compare <- moh705A %>%
+  filter(my %in% time_filter) %>%
+  group_by(year) %>%
+  summarise(suspected = sum(suspected, na.rm = T),
+            tested = sum(tested, na.rm = T),
+            confirmed = sum(confirmed, na.rm = T)) %>%
+  ungroup() %>%
+  mutate(test_rate = round(tested/suspected, 2),
+         pos_rate = round(confirmed/tested, 2))
+
+prop_change_tested <- (moh705A_compare$test_rate[2] - moh705A_compare$test_rate[1])/
+  moh705A_compare$test_rate[1]; prop_change_tested
+# proportion tested increased by 58%.
+
+prop_test_change <- prop.test(x = c(moh705A_compare$tested[1], moh705A_compare$tested[2]),
+                              n = c(moh705A_compare$suspected[1], moh705A_compare$suspected[2]),
+                              alternative = "two.sided",  # Two-tailed test
+                              correct = FALSE)        # Disable Yates' continuity correction (for large samples)
+# prop_test_change$conf.int
+
+prop_change_pos <- (moh705A_compare$pos_rate[2] - moh705A_compare$pos_rate[1])/
+  moh705A_compare$pos_rate[1]; prop_change_pos
+# Proportion positive decreased by 13%
+
+prop_test_pos <- prop.test(x = c(moh705A_compare$confirmed[1], moh705A_compare$confirmed[2]),
+                           n = c(moh705A_compare$tested[1], moh705A_compare$tested[2]),
+                           alternative = "two.sided",  # Two-tailed test
+                           correct = FALSE)        # Disable Yates' continuity correction (for large samples)
+# prop_test_pos$conf.int
+
+
+moh705A_long_compare <- moh705A %>%
+  filter(my %in% time_filter) %>%
+  group_by(year, subcounty, dispensary) %>%
+  summarise(suspected = sum(suspected, na.rm = T),
+            tested = sum(tested, na.rm = T),
+            confirmed = sum(confirmed, na.rm = T)) %>%
+  ungroup() %>%
+  mutate(test_rate = round(tested/suspected, 2),
+         pos_rate = round(confirmed/tested, 2)) %>%
+  select(subcounty, dispensary, year, test_rate, pos_rate) %>%
+  tidyr::pivot_longer(cols = test_rate:pos_rate,
+                      names_to = "case_type",
+                      values_to = "prop") %>%
+  mutate(case_type = factor(case_type,
+                            labels = c("Test", "Positive")))
+
+prop_palette <- c("Test" = "#aec7e8",
+                  "Positive" = "#1f77b4")
+
+
 
 # GRAPH 2: shows line trend for suspected, tested, confirmed for each dispensary
 fig2_moh705A <- plot_malaria_cases(moh705A_long, "under-5 years")
