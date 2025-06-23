@@ -2,4 +2,6 @@
 title: "Analysis notes"
 ---
 
-1. The number of suspected, tested and positive malaria by RDT reported by the CHEWs (MOH515 summary) is not consistent with the numbers reported in MOH706.
+1.  The number of suspected, tested and positive malaria by RDT reported by the CHEWs (MOH515 summary) is not consistent with the numbers reported in MOH706.
+
+2. The proportion of tests conducted and positivity compares periods in 2023 and 2024 for the months of September-December (total). This is because there was no baseline data available for periods before the interventions.
