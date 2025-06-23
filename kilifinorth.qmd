@@ -12,6 +12,7 @@ There were two dispensaries in Kilifi North subcounty: Kiwandani and Kadzinuni.
 
 source("src/functions.R")
 source("src/maps.R")
+source("src/moh705.R")
 source("src/moh706.R")
 source("src/chp_data.R")
 
@@ -143,6 +144,37 @@ fig_mip_kn
 :::
 
 ------------------------------------------------------------------------
+
+## Proportion of Tests Conducted and Positivity (2023 vs. 2024)
+
+::: panel-tabset
+
+## Kadzinuni
+```{r}
+#| label: kadzinuni-malaria-tests
+#| echo: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 6
+#| 
+fxn_compare_MOH705A(moh705A_long_compare, "Kadzinuni")
+```
+
+## Kiwandani
+```{r}
+#| label: kiwandani-malaria-tests
+#| echo: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 6
+#| 
+fxn_compare_MOH705A(moh705A_long_compare, "Kiwandani")
+```
+
+:::
+
+------------------------------------------------------------------------
+
 
 ## Bednet ownership and usage
 

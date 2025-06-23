@@ -17,6 +17,7 @@ pacman::p_load(bslib, bsicons)
 
 source("src/functions.R")
 source("src/maps.R")
+source("src/moh705.R")
 source("src/moh706.R")
 source("src/chp_data.R")
 
@@ -91,7 +92,7 @@ plot_malaria_test_type(moh706_dispensary_quarters |> filter(subcounty == "Ganze"
                        "mbs_o5", "Microscopy", "≥5 years", "dispensary")
 ```
 
-## RDT \<5 years
+## RDT <5 years
 
 ```{r}
 #| label: rdt-o5-ganze
@@ -141,6 +142,36 @@ plot_malaria_test_type(moh706_dispensary_quarters |> filter(subcounty == "Ganze"
 # plot fig
 fig_mip_ganze 
 ```
+:::
+
+------------------------------------------------------------------------
+
+## Proportion of Tests Conducted and Positivity (2023 vs. 2024)
+
+::: panel-tabset
+## Ganze
+
+```{r}
+#| label: ganze-malaria-tests
+#| echo: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 6
+
+fxn_compare_MOH705A(moh705A_long_compare, "Ganze")
+```
+
+## Jaribuni
+```{r}
+#| label: jaribuni-malaria-tests
+#| echo: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 6
+
+fxn_compare_MOH705A(moh705A_long_compare, "Jaribuni")
+```
+
 :::
 
 ------------------------------------------------------------------------
