@@ -13,8 +13,10 @@ library(scatterpie)
 library(ggmap)  # For background maps (optional)
 ```
 
-
 ```{r}
+#| fig-width: 12
+#| fig-height: 5
+
 source("../src/study_health_facilities.R")
 map_cols <- c('#8dd3c7', '#d8b365', '#ef8a62', '#bebada', '#bdbdbd', '#bdbdbd', '#b3de69')
 
@@ -237,10 +239,6 @@ ggsave("../images/publication_fig_moh705B.png", plot = publication_fig_moh705B, 
 
 ```
 
-
-
-
-
 ```{r}
 
 
@@ -315,8 +313,6 @@ ggplot() +
   theme_minimal() +
   theme(legend.position = "bottom")
 ```
-
-
 
 ```{r}
 
@@ -449,4 +445,4 @@ leaflet_map <- leaflet() %>%
     )
     
     plot_kilifi_subcounty_leaflet("Ganze")
-    ```
+```
