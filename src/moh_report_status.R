@@ -79,9 +79,9 @@ fxn_moh_reports <- function(data, form_type) {
       name = "",
       values = period_palette,
       labels = c(
-        "Actual (JAS 2024)", "Expected (JAS 2024)",
-        "Actual (OND 2024)", "Expected (OND 2024)",
-        "Actual (JFM 2025)", "Expected (JFM 2025)"
+        "Actual (Jul-Sep 2024)", "Expected (JAS 2024)",
+        "Actual (Oct-Dec 2024)", "Expected (OND 2024)",
+        "Actual (Jan-Mar 2025)", "Expected (JFM 2025)"
       )
     ) +
     

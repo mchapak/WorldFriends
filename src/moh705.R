@@ -18,10 +18,10 @@ source("src/study_health_facilities.R")
 #
 # Uses data from MOH705A
 moh705A <- readxl::read_excel("../data/WF/clean/khis_dispensary_data.xlsx", 
-                      sheet = "MOH705A", skip=1) %>%
+                              sheet = "MOH705A", skip=1) %>%
   rename_all(tolower) %>%
   dplyr::mutate(dispensary = case_when(dispensary == "Ganze H/C" ~ "Ganze",
-                                TRUE ~ dispensary)) %>%
+                                       TRUE ~ dispensary)) %>%
   left_join(subcounty_hf %>% select(-dispensary), 
             by = c("dispensary" = "short_f_name"))
 
@@ -40,7 +40,7 @@ moh705A <- moh705A |>
   dplyr::mutate(pos_rate = (confirmed/tested)*1000) # rate/1000 tested
 
 moh705A$my <- factor(moh705A$my,
-                       levels = report_month)
+                     levels = report_month)
 
 # convert to long format
 moh705A_long <- moh705A |>
@@ -145,7 +145,7 @@ moh705A_subcounty <- moh705A %>%
 
 # Uses data from MOH705B
 moh705B <- readxl::read_excel("../data/WF/clean/khis_dispensary_data.xlsx", 
-                      sheet = "MOH705B", skip=1) %>%
+                              sheet = "MOH705B", skip=1) %>%
   rename_all(tolower) %>%
   select(-subcounty) %>%
   mutate(dispensary = case_when(dispensary == "Ganze H/C" ~ "Ganze",
@@ -160,7 +160,7 @@ moh705B <- reshape_moh705(moh705B) |>
   rename(mip = "malaria in pregnancy") 
 
 moh705B$my <- factor(moh705B$my,
-                       levels = report_month)
+                     levels = report_month)
 
 # convert to long format
 moh705B_long <- moh705B |>
@@ -286,4 +286,3 @@ fig_mip_kaloleni <- fxn_moh705B_mip(moh705B_mip, "Kaloleni", "#d8b365")
 fig_mip_kn <- fxn_moh705B_mip(moh705B_mip, "Kilifi North", "#ef8a62")
 fig_mip_ks <- fxn_moh705B_mip(moh705B_mip, "Kilifi South", "#bebada")
 fig_mip_rabai <- fxn_moh705B_mip(moh705B_mip, "Rabai", "#b3de69")
-

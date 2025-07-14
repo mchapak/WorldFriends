@@ -82,13 +82,13 @@ total_subcounty_chp_reports <- chp_long %>%
 # 1. proportion of people who own a net the previous night
 
 fig_own_net_subcounty <- fxn_fig_net_subcounty(total_subcounty_chp_reports, "prop_have_net", 
-                                               "Proportion of people who own a net out of those sensitized")
-fig_own_net_subcounty
+                                               "Proportion of people who own a net out of those sensitized (n)")
+# fig_own_net_subcounty
 
 # 2: proportion of people who slept under a net the previous night
 fig_use_net_subcounty <- fxn_fig_net_subcounty(total_subcounty_chp_reports, "prop_use_net", 
-                                               "Proportion of people using nets out of those sensitized")
-fig_use_net_subcounty
+                                               "Proportion of people using nets out of those sensitized (n)")
+# fig_use_net_subcounty
 
 
 # Number of people who own and use nets per health facility 
