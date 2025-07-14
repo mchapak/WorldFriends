@@ -12,17 +12,20 @@ pacman::p_load(
 subcounty_hf <- tibble(
   subcounty = c("Ganze", "Ganze", "Kaloleni", "Kaloleni",
                 "Kilifi North", "Kilifi North", "Kilifi North", 
-                "Kilifi South", "Kilifi South", "Rabai", "Rabai", "Malindi"),
+                "Kilifi South", "Kilifi South", "Rabai", "Rabai", "Malindi", 
+                "Malindi", "Magarini"),
   dispensary = c("Ganze Health Centre", "Jaribuni Dispensary", # Ganze
                  "Mgamboni Dispensary", "Kinarani Dispensary", # Kaloleni
                  "Kiwandani Dispensary", "Kadzinuni Dispensary", 
                  "Kilifi District Hospital",  # KN
                  "Pingilikani Dispensary", "Tunzanani Dispensary", # KS
                  "Makanzani Dispensary", "Lenga Dispensary", # Rabai
-                 "Malindi District Hospital"), # Malindi
+                 "Malindi District Hospital", "Madunguni Dispensary", # Malindi
+                 "Baricho Dispensary"), # Magarini
   short_f_name = c("Ganze", "Jaribuni", "Mgamboni", "Kinarani", "Kiwandani",
                    "Kadzinuni", "Kilifi", "Pingilikani", 
-                   "Tunzanani", "Makanzani", "Lenga", "Malindi")) 
+                   "Tunzanani", "Makanzani", "Lenga", "Malindi", "Madunguni",
+                   "Baricho")) # Madunguni, Baricho
 
 
 ## get lat-long of health facilities
@@ -31,12 +34,13 @@ subcounty_hf <- tibble(
 # Tunzanani, Baolala, Gongoni dispensary was not in the MOH list, so we create manually
 additional_hf <- tibble(
   county = c("Kilifi", "Kilifi", "Kilifi"),
-  dispensary = c("Tunzanani Dispensary", "Baolala Dispensary", "Gongoni Dispensary"),
+  dispensary = c("Tunzanani Dispensary", "Baolala Dispensary", 
+                 "Gongoni Health Centre"),
   F_Type = c("Dispensary", "Dispensary", "Health Centre"),
   Ownership = c("MOH", "MOH", "MOH"),
   Latitude = c(-3.891365, -3.179836, -3.037937),
   Longitude = c(39.695260, 39.785560, 40.128563),
-  subcounty = c("Kilifi South", "Malindi", "Malindi"),
+  subcounty = c("Kilifi South", "Malindi", "Magarini"),
   short_f_name = c("Tunzanani", "Baolala", "Gongoni")
 )
 
