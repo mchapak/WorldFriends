@@ -92,7 +92,7 @@ plot_malaria_test_type(moh706_dispensary_quarters |> filter(subcounty == "Ganze"
                        "mbs_o5", "Microscopy", "≥5 years", "dispensary")
 ```
 
-## RDT <5 years
+## RDT \<5 years
 
 ```{r}
 #| label: rdt-o5-ganze
@@ -162,6 +162,7 @@ fxn_compare_MOH705A(moh705A_long_compare, "Ganze")
 ```
 
 ## Jaribuni
+
 ```{r}
 #| label: jaribuni-malaria-tests
 #| echo: false
@@ -171,7 +172,6 @@ fxn_compare_MOH705A(moh705A_long_compare, "Ganze")
 
 fxn_compare_MOH705A(moh705A_long_compare, "Jaribuni")
 ```
-
 :::
 
 ------------------------------------------------------------------------
